@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Easing, interpolate, random, useCurrentFrame, useVideoConfig } from "remotion";
+import React from "react";
+import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 
 const getCircumferenceOfArc = (rx: number, ry: number) => {
   return Math.PI * 2 * Math.sqrt((rx * rx + ry * ry) / 2);
@@ -26,7 +26,7 @@ export const Arc: React.FC<{
   });
 
   // Each svg Id must be unique to not conflict with each other
-  const [gradientId] = useState(() => String(random(null)));
+  const gradientId = React.useId().replace(/:/g, "");
 
   return (
     <svg

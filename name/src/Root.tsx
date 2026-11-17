@@ -14,6 +14,7 @@ import {
   WaitingScene,
   MedicalScene,
   MissingReportScene,
+  ReportCopyScene,
   SendingReportScene,
   LawyerInvestigationScene,
   JournalMismatchScene,
@@ -56,12 +57,12 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 28–33 с: у військового залишається копія з номером */}
       <Sequence from={840} durationInFrames={150}>
-        <SendingReportScene />
+        <ReportCopyScene />
       </Sequence>
 
       {/* 33–40 с: фото документа потрапляє до адвоката */}
       <Sequence from={990} durationInFrames={210}>
-        <LawyerInvestigationScene variant="photo" />
+        <SendingReportScene />
       </Sequence>
 
       {/* 40–47 с: адвокат звіряє дату, підпис і шлях документа */}

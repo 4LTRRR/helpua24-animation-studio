@@ -227,6 +227,7 @@ export const MedicalScene: React.FC = () => (
 export const MissingReportScene: React.FC = () => {
   const frame = useCurrentFrame();
   const zoom = interpolate(frame, [0, 180], [1, 1.08]);
+  const missingRecordOpacity = interpolate(frame, [84, 96], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ overflow: "hidden" }}>
       <AdminBackground />
@@ -235,10 +236,11 @@ export const MissingReportScene: React.FC = () => {
         <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "2px solid #7e817c", padding: "20px 0 12px", fontSize: 17, fontWeight: 700 }}>
           <span>№</span><span>ДАТА</span><span>ЗМІСТ</span><span>ВІД КОГО</span>
         </div>
-        {["0416 · 12.11 · Заява · штаб", "0417 · 13.11 · Наказ · відділ", "0419 · 14.11 · Запит · медслужба"].map((line) => (
-          <div key={line} style={{ padding: "17px 0", borderBottom: "1px solid #a4a49b", fontSize: 18 }}>{line}</div>
-        ))}
-        <div style={{ marginTop: 18, color: "#913b3c", fontSize: 23, fontWeight: 800, textAlign: "center", letterSpacing: 2 }}>ЗАПИСУ № 0418 НЕМАЄ</div>
+        {["0416 · 12.11 · Заява · штаб", "0417 · 13.11 · Наказ · відділ", "0419 · 14.11 · Запит · медслужба"].map((line, index) => {
+          const rowOpacity = interpolate(frame, [8 + index * 18, 18 + index * 18], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          return <div key={line} style={{ padding: "17px 0", borderBottom: "1px solid #a4a49b", fontSize: 18, opacity: rowOpacity }}>{line}</div>;
+        })}
+        <div style={{ marginTop: 18, color: "#913b3c", fontSize: 23, fontWeight: 800, textAlign: "center", letterSpacing: 2, opacity: missingRecordOpacity, transform: `translateY(${interpolate(missingRecordOpacity, [0, 1], [8, 0])}px)` }}>ЗАПИСУ № 0418 НЕМАЄ</div>
       </div>
     </AbsoluteFill>
   );
@@ -276,7 +278,7 @@ export const LawyerInvestigationScene: React.FC<{ variant?: LawyerInvestigationV
   variant = "photo",
 }) => {
   const frame = useCurrentFrame();
-  const focus = interpolate(frame, [0, 30, 180], [0.65, 1, 1]);
+  const focus = variant === "verification" ? 1 : interpolate(frame, [0, 30, 180], [0.65, 1, 1]);
   const contentByVariant = {
     photo: {
       title: "ОТРИМАНО ФОТО РАПОРТУ",
@@ -432,6 +434,7 @@ export const StampRevealScene: React.FC<{ variant?: StampRevealVariant }> = ({
   const heading = variant === "detail"
     ? "КРУПНИЙ ПЛАН ПЕЧАТКИ"
     : "ПЕЧАТКА НАЛЕЖИТЬ ІНШОМУ ПІДРОЗДІЛУ";
+  const foreignUnitOpacity = interpolate(frame, [54, 64], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill style={{ background: "linear-gradient(145deg, #30383b, #10171b)", overflow: "hidden" }}>
@@ -445,6 +448,9 @@ export const StampRevealScene: React.FC<{ variant?: StampRevealVariant }> = ({
           {stampText}
         </div>
         <div style={{ position: "absolute", left: "12%", bottom: "15%", color: "#963b3e", fontSize: 22, fontWeight: 800 }}>ВХ. № 0418</div>
+        {variant === "detail" && (
+          <div style={{ position: "absolute", right: "8%", bottom: "5%", padding: "12px 18px", background: "rgba(150,59,62,0.96)", color: "#fff", fontSize: 20, fontWeight: 900, letterSpacing: 2, opacity: foreignUnitOpacity, transform: `translateY(${interpolate(foreignUnitOpacity, [0, 1], [14, 0])}px)`, boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}>ЧУЖИЙ ПІДРОЗДІЛ</div>
+        )}
       </div>
     </AbsoluteFill>
   );

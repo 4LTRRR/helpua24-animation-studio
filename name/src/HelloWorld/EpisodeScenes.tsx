@@ -430,7 +430,7 @@ export const StampRevealScene: React.FC<{ variant?: StampRevealVariant }> = ({
         <div style={{ marginTop: 25, height: 6, width: "86%", background: "#b7b9b1" }} />
         <div style={{ marginTop: 25, height: 6, width: "92%", background: "#b7b9b1" }} />
         <div style={{ marginTop: 25, height: 6, width: "72%", background: "#b7b9b1" }} />
-        <div style={{ position: "absolute", right: "12%", bottom: "17%", width: 220, height: 220, border: `9px solid rgba(148,52,55,${ring})`, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#963b3e", fontSize: 25, fontWeight: 800, textAlign: "center", transform: "rotate(-14deg)", whiteSpace: "pre-line" }}>
+        <div style={{ position: "absolute", right: "12%", bottom: "17%", width: 220, height: 220, border: `9px solid rgba(148,52,55,${ring})`, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#963b3e", fontSize: 18, fontWeight: 800, textAlign: "center", transform: "rotate(-14deg)" }}>
           {stampText}
         </div>
         <div style={{ position: "absolute", left: "12%", bottom: "15%", color: "#963b3e", fontSize: 22, fontWeight: 800 }}>ВХ. № 0418</div>

@@ -130,13 +130,15 @@ const HELPUA24Episode01: React.FC = () => {
         <FinalCallScene />
       </Sequence>
 
-      {/* Оригінальна озвучка починається разом із першою реплікою */}
-      <Sequence from={90}>
-        <Audio playbackRate={0.96} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
+      {/* Звук і субтитри зміщені на 9 кадрів (0,3 с), швидкість відтворення — оригінальна */}
+      <Sequence from={99}>
+        <Audio playbackRate={1} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
       </Sequence>
 
-      {/* Субтитри та назва епізоду */}
-      <EpisodeNarration />
+      {/* Субтитри зміщені на ті самі 9 кадрів для синхронізації з озвучкою */}
+      <Sequence from={9}>
+        <EpisodeNarration />
+      </Sequence>
     </>
   );
 };

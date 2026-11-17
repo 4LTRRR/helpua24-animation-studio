@@ -111,12 +111,12 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 99–106 с: крупний план печатки */}
       <Sequence from={2970} durationInFrames={210}>
-        <StampRevealScene />
+        <StampRevealScene variant="detail" />
       </Sequence>
 
       {/* 106–113 с: стає зрозуміло, що печатка чужа */}
       <Sequence from={3180} durationInFrames={210}>
-        <StampRevealScene />
+        <StampRevealScene variant="foreign" />
       </Sequence>
 
       {/* 113–118 с: адвокат усвідомлює, що це не проста помилка */}

@@ -259,23 +259,64 @@ export const SendingReportScene: React.FC = () => (
   </AbsoluteFill>
 );
 
-export const LawyerInvestigationScene: React.FC = () => {
+type LawyerInvestigationVariant = "photo" | "verification" | "route" | "stamp" | "clue";
+
+export const LawyerInvestigationScene: React.FC<{ variant?: LawyerInvestigationVariant }> = ({
+  variant = "photo",
+}) => {
   const frame = useCurrentFrame();
   const focus = interpolate(frame, [0, 30, 180], [0.65, 1, 1]);
+  const contentByVariant = {
+    photo: {
+      title: "ОТРИМАНО ФОТО РАПОРТУ",
+      detail: "Адвокат перевіряє документ, не втрачаючи жодної деталі.",
+      mark: "ВХ. № 0418",
+      note: "КОПІЯ ДОКУМЕНТА",
+    },
+    verification: {
+      title: "ДАТА. ПІДПИС. ВХІДНИЙ НОМЕР.",
+      detail: "Усі реквізити на копії є. Але хто і куди передав оригінал?",
+      mark: "14.11.2026",
+      note: "ПІДПИС Є",
+    },
+    route: {
+      title: "ПЕРЕВІРКА ШЛЯХУ ДОКУМЕНТА",
+      detail: "У журналі за цим номером адвокат знаходить зовсім інше звернення.",
+      mark: "ЖУРНАЛ · № 0418",
+      note: "НЕВІДПОВІДНІСТЬ",
+    },
+    stamp: {
+      title: "АДВОКАТ ЗБІЛЬШУЄ ПЕЧАТКУ",
+      detail: "Відбиток виглядає справжнім, але його реквізити не збігаються.",
+      mark: "ПЕЧАТКА",
+      note: "ПЕРЕВІРИТИ ПІДРОЗДІЛ",
+    },
+    clue: {
+      title: "ЦЕ НЕ СХОЖЕ НА ПОМИЛКУ",
+      detail: "Хтось залишив у документах слід. І тепер адвокат знає, де шукати.",
+      mark: "ЧУЖИЙ ВІДБИТОК",
+      note: "ВАЖЛИВА ПІДКАЗКА",
+    },
+  }[variant];
+
   return (
     <AbsoluteFill>
       <LawyerOffice />
       <LawyerLayer />
-      <div style={{ position: "absolute", left: "5%", top: "16%", width: "43%", padding: 22, background: "rgba(12,18,23,0.94)", border: "1px solid rgba(201,165,117,0.55)", boxShadow: "0 18px 50px rgba(0,0,0,0.35)", transform: `scale(${focus})`, transformOrigin: "left center" }}>
-        <div style={{ color: "#c9a575", fontSize: 17, letterSpacing: 3, fontWeight: 700 }}>ПЕРЕВІРКА ДОКУМЕНТА</div>
-        <div style={{ marginTop: 14, padding: 18, background: "#e9e5da", color: "#343b3d", minHeight: 230 }}>
+      <div style={{ position: "absolute", left: "5%", top: "16%", width: "43%", padding: 22, background: "rgba(12,18,23,0.95)", border: "1px solid rgba(201,165,117,0.6)", boxShadow: "0 18px 50px rgba(0,0,0,0.4)", transform: `scale(${focus})`, transformOrigin: "left center" }}>
+        <div style={{ color: "#c9a575", fontSize: 17, letterSpacing: 2, fontWeight: 700 }}>{contentByVariant.title}</div>
+        <div style={{ marginTop: 14, padding: 18, background: "#e9e5da", color: "#343b3d", minHeight: 230, position: "relative" }}>
           <div style={{ textAlign: "center", fontSize: 22, fontWeight: 800 }}>РАПОРТ</div>
           <div style={{ marginTop: 24, height: 4, background: "#9da09b" }} />
           <div style={{ marginTop: 14, height: 4, width: "85%", background: "#b0b2aa" }} />
           <div style={{ marginTop: 14, height: 4, width: "92%", background: "#b0b2aa" }} />
-          <div style={{ marginTop: 30, color: "#8e393a", fontSize: 20, fontWeight: 800 }}>ВХ. № 0418</div>
+          <div style={{ marginTop: 30, color: "#8e393a", fontSize: 20, fontWeight: 800 }}>{contentByVariant.mark}</div>
+          {variant === "stamp" || variant === "clue" ? (
+            <div style={{ position: "absolute", right: 14, bottom: 12, width: 92, height: 92, border: "4px solid #963b3e", borderRadius: "50%", color: "#963b3e", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", fontSize: 11, fontWeight: 800, transform: "rotate(-12deg)" }}>ІНШИЙ<br />ПІДРОЗДІЛ</div>
+          ) : null}
         </div>
-        <div style={{ marginTop: 14, color: "#e4e8e8", fontSize: 17 }}>Дата та підпис підтверджують подання. Шлях документа — ні.</div>
+        <div style={{ marginTop: 14, color: "#e4e8e8", fontSize: 17 }}>{contentByVariant.detail}</div>
+        <div style={{ marginTop: 12, color: "#d1b486", fontSize: 14, letterSpacing: 2, fontWeight: 700 }}>{contentByVariant.note}</div>
       </div>
     </AbsoluteFill>
   );
@@ -308,6 +349,22 @@ export const JournalMismatchScene: React.FC = () => {
   );
 };
 
+export const SuspicionScene: React.FC = () => {
+  const frame = useCurrentFrame();
+  const shadow = interpolate(Math.sin(frame / 28), [-1, 1], [0.1, 0.28]);
+  return (
+    <AbsoluteFill>
+      <BarracksBackground />
+      <SoldierLayer emotion="worried" pose="worried" />
+      <div style={{ position: "absolute", right: "8%", top: "20%", width: 250, padding: 22, background: "rgba(12,18,23,0.92)", border: "1px solid rgba(255,255,255,0.16)", borderRadius: 18, boxShadow: `0 18px 55px rgba(0,0,0,${shadow})`, color: "#fff", textAlign: "center" }}>
+        <div style={{ color: "#c9a575", fontSize: 17, letterSpacing: 3 }}>ТЕЛЕФОН</div>
+        <div style={{ margin: "20px auto", width: 74, height: 120, borderRadius: 12, border: "5px solid #78858a", background: "#18242a", display: "flex", alignItems: "center", justifyContent: "center", color: "#b7c2c5", fontSize: 24 }}>…</div>
+        <div style={{ fontSize: 17, color: "#b7c2c5" }}>ВІН ВІДЧУВАЄ, ЩО ЩОСЬ НЕ ТАК</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 export const ThreatScene: React.FC = () => {
   const frame = useCurrentFrame();
   const appear = interpolate(frame, [0, 12, 24], [0, 1, 1], { extrapolateRight: "clamp" });
@@ -319,6 +376,21 @@ export const ThreatScene: React.FC = () => {
         <div style={{ color: "#d6b98f", fontSize: 18, letterSpacing: 3, marginBottom: 18 }}>НЕВІДОМИЙ НОМЕР</div>
         <div style={{ color: "#fff", fontSize: 34, lineHeight: 1.25, fontWeight: 700 }}>«Забери рапорт. Інакше матимеш проблеми».</div>
         <div style={{ marginTop: 20, color: "#aab4b9", fontSize: 17 }}>ЩОЙНО · SMS</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+export const ThreatCloseupScene: React.FC = () => {
+  const frame = useCurrentFrame();
+  const zoom = interpolate(frame, [0, 180], [0.92, 1.12]);
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(145deg, #252d32, #090f14)" }}>
+      <div style={{ position: "absolute", inset: "18% 8%", padding: 34, borderRadius: 28, background: "#141d24", border: "2px solid rgba(255,255,255,0.18)", boxShadow: "0 30px 90px rgba(0,0,0,0.65)", color: "#fff", transform: `scale(${zoom})` }}>
+        <div style={{ color: "#d1b486", fontSize: 18, letterSpacing: 3 }}>ПОВІДОМЛЕННЯ · НЕВІДОМИЙ НОМЕР</div>
+        <div style={{ marginTop: 38, padding: 28, background: "#27343d", borderRadius: 22, fontSize: 38, lineHeight: 1.3, fontWeight: 700 }}>«Забери рапорт. Інакше матимеш проблеми».</div>
+        <div style={{ marginTop: 28, color: "#aab4b9", fontSize: 18 }}>ЩОЙНО · ПОВІДОМЛЕННЯ ОТРИМАНО</div>
+        <div style={{ position: "absolute", right: 34, bottom: 28, color: "#a64a4c", fontSize: 16, fontWeight: 800, letterSpacing: 2 }}>НЕ ВІДПОВІДАТИ</div>
       </div>
     </AbsoluteFill>
   );

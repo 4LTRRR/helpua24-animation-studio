@@ -7,6 +7,7 @@ import { Title } from "./HelloWorld/Title";
 import { Character } from "./HelloWorld/Character";
 import { Lawyer } from "./HelloWorld/Lawyer";
 import { DialogueScene } from "./HelloWorld/DialogueScene";
+import { MilitaryScene } from "./HelloWorld/MilitaryScene";
 import { EpisodeNarration } from "./HelloWorld/EpisodeNarration";
 import {
   ReportWritingScene,
@@ -16,7 +17,6 @@ import {
   SendingReportScene,
   LawyerInvestigationScene,
   JournalMismatchScene,
-  SuspicionScene,
   ThreatScene,
   ThreatCloseupScene,
   PhoneCallScene,
@@ -86,7 +86,7 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 67–74 с: військовий розуміє, що ситуація підозріла */}
       <Sequence from={2010} durationInFrames={210}>
-        <SuspicionScene />
+        <MilitaryScene />
       </Sequence>
 
       {/* 74–80 с: надходить повідомлення з невідомого номера */}

@@ -314,7 +314,7 @@ export const Lawyer = ({
           {/* Корпус */}
           <path
             d="M195 340 Q170 350 158 410 L145 675 Q138 735 165 785 L195 815 L305 815 L335 785 Q362 735 355 675 L342 410 Q330 350 305 340 Z"
-            fill="url(#${gradientPrefix}-suit)"
+            fill={`url(#${gradientPrefix}-suit)`}
             stroke="#101923"
             strokeWidth="5"
           />
@@ -322,7 +322,7 @@ export const Lawyer = ({
           {/* Сорочка */}
           <path
             d="M225 330 L250 390 L275 330 L290 405 L282 785 L218 785 L210 405 Z"
-            fill="url(#${gradientPrefix}-shirt)"
+            fill={`url(#${gradientPrefix}-shirt)`}
           />
 
           {/* Комір */}
@@ -387,7 +387,7 @@ export const Lawyer = ({
             <g transform="translate(42 535) rotate(-12 100 90)">
               <path
                 d="M30 12 L145 4 L160 175 L45 185 Z"
-                fill="url(#${gradientPrefix}-leather)"
+                fill={`url(#${gradientPrefix}-leather)`}
                 stroke="#30231d"
                 strokeWidth="5"
               />
@@ -446,7 +446,7 @@ export const Lawyer = ({
             />
             <path
               d="M110 650 Q100 685 115 715 Q130 740 150 715 L155 675 Z"
-              fill="url(#${gradientPrefix}-skin)"
+              fill={`url(#${gradientPrefix}-skin)`}
             />
 
             <path
@@ -483,7 +483,7 @@ export const Lawyer = ({
               <g transform={`rotate(${handRotation} 380 680)`}>
                 <path
                   d="M390 650 Q400 685 385 715 Q370 740 350 715 L345 675 Z"
-                  fill="url(#${gradientPrefix}-skin)"
+                  fill={`url(#${gradientPrefix}-skin)`}
                   stroke="#a87962"
                   strokeWidth="2"
                 />
@@ -507,7 +507,7 @@ export const Lawyer = ({
           {/* Шия */}
           <path
             d="M220 275 L220 350 Q250 380 280 350 L280 275 Z"
-            fill="url(#${gradientPrefix}-skin)"
+            fill={`url(#${gradientPrefix}-skin)`}
           />
 
           {/* Голова */}
@@ -516,7 +516,7 @@ export const Lawyer = ({
           >
             <path
               d="M180 145 Q180 75 250 75 Q320 75 320 145 L310 255 Q300 320 250 325 Q200 320 190 255 Z"
-              fill="url(#${gradientPrefix}-skin)"
+              fill={`url(#${gradientPrefix}-skin)`}
               stroke="#9c6d56"
               strokeWidth="3"
             />

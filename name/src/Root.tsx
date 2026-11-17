@@ -9,6 +9,7 @@ import { Character } from "./HelloWorld/Character";
 import { MilitaryScene } from "./HelloWorld/MilitaryScene";
 import { Lawyer } from "./HelloWorld/Lawyer";
 import { DialogueScene } from "./HelloWorld/DialogueScene";
+import { EpisodeNarration } from "./HelloWorld/EpisodeNarration";
 
 // Перша серія: «Рапорт, якого ніхто не бачить»
 const HELPUA24Episode01: React.FC = () => {
@@ -41,6 +42,9 @@ const HELPUA24Episode01: React.FC = () => {
       <Sequence from={2790} durationInFrames={810}>
         <DialogueScene />
       </Sequence>
+
+      {/* Закадрова історія, повідомлення та фінальний дзвінок */}
+      <EpisodeNarration />
     </>
   );
 };

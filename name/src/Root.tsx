@@ -9,6 +9,7 @@ import { Lawyer } from "./HelloWorld/Lawyer";
 import { DialogueScene } from "./HelloWorld/DialogueScene";
 import { MilitaryScene } from "./HelloWorld/MilitaryScene";
 import { EpisodeNarration } from "./HelloWorld/EpisodeNarration";
+import { EpisodeEndCard } from "./HelloWorld/EpisodeEndCard";
 import {
   ReportWritingScene,
   WaitingScene,
@@ -130,6 +131,11 @@ const HELPUA24Episode01: React.FC = () => {
         <FinalCallScene />
       </Sequence>
 
+      {/* Фінальна заставка після сюжетного обриву */}
+      <Sequence from={2670} durationInFrames={180}>
+        <EpisodeEndCard />
+      </Sequence>
+
       {/* Озвучка починається з першої сюжетної сцени; обрізано 4 кадри тиші в MP3 */}
       <Sequence from={90}>
         <Audio playbackRate={1} startFrom={4} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
@@ -191,7 +197,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="HELPUA24-Story"
           component={HELPUA24Episode01}
-          durationInFrames={2670}
+          durationInFrames={2850}
           fps={30}
           width={1080}
           height={1920}

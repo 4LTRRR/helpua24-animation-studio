@@ -244,6 +244,17 @@ export const MissingReportScene: React.FC = () => {
   );
 };
 
+export const ReportCopyScene: React.FC = () => (
+  <AbsoluteFill>
+    <BarracksBackground />
+    <SoldierLayer emotion="worried" pose="worried" />
+    <PaperOnDesk stamp />
+    <div style={{ position: "absolute", top: "13%", left: "8%", padding: "18px 24px", background: "rgba(12,18,23,0.9)", borderLeft: "5px solid #b78b55", color: "#fff", fontSize: 20, fontWeight: 700, letterSpacing: 2 }}>
+      КОПІЯ З ВХІДНИМ НОМЕРОМ
+    </div>
+  </AbsoluteFill>
+);
+
 export const SendingReportScene: React.FC = () => (
   <AbsoluteFill>
     <BarracksBackground />

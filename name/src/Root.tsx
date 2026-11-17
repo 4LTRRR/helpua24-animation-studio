@@ -131,9 +131,7 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* Озвучка починається з 0:00; швидкість відтворення — оригінальна */}
-      <Sequence from={0}>
-        <Audio playbackRate={1} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
-      </Sequence>
+      <Audio playbackRate={1} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
 
       {/* Субтитри синхронізовані з початком озвучки */}
       <EpisodeNarration />

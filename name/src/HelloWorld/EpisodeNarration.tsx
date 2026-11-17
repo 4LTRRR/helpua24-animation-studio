@@ -122,20 +122,6 @@ export const EpisodeNarration: React.FC = () => {
       )
     : 0;
 
-  const notificationProgress = interpolate(
-    frame,
-    [2220, 2240, 2560, 2580],
-    [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-  );
-
-  const callProgress = interpolate(
-    frame,
-    [3450, 3470, 3590, 3600],
-    [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-  );
-
   return (
     <AbsoluteFill style={{ pointerEvents: "none", zIndex: 30 }}>
       {/* Постійна назва епізоду */}
@@ -202,116 +188,6 @@ export const EpisodeNarration: React.FC = () => {
         </div>
       )}
 
-      {/* Повідомлення з невідомого номера */}
-      <div
-        style={{
-          position: "absolute",
-          top: 260,
-          left: "9%",
-          right: "9%",
-          padding: "25px 30px",
-          borderRadius: 20,
-          backgroundColor: "rgba(20, 25, 31, 0.96)",
-          border: "1px solid rgba(255,255,255,0.18)",
-          boxShadow: "0 18px 55px rgba(0,0,0,0.45)",
-          opacity: notificationProgress,
-          transform: `translateY(${interpolate(notificationProgress, [0, 1], [-24, 0])}px)`,
-        }}
-      >
-        <div
-          style={{
-            color: "#d4b17f",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 20,
-            fontWeight: 700,
-            letterSpacing: 2,
-            marginBottom: 12,
-          }}
-        >
-          ПОВІДОМЛЕННЯ  ·  НЕВІДОМИЙ НОМЕР
-        </div>
-        <div
-          style={{
-            color: "#ffffff",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 34,
-            lineHeight: 1.25,
-            fontWeight: 600,
-          }}
-        >
-          «Забери рапорт. Інакше матимеш проблеми».
-        </div>
-      </div>
-
-      {/* Фінальний вхідний дзвінок */}
-      <div
-        style={{
-          position: "absolute",
-          top: "34%",
-          left: "12%",
-          right: "12%",
-          padding: "34px 30px 38px",
-          borderRadius: 24,
-          backgroundColor: "rgba(12, 17, 23, 0.97)",
-          border: "1px solid rgba(255,255,255,0.16)",
-          boxShadow: "0 22px 70px rgba(0,0,0,0.55)",
-          textAlign: "center",
-          opacity: callProgress,
-          transform: `scale(${interpolate(callProgress, [0, 1], [0.96, 1])})`,
-        }}
-      >
-        <div
-          style={{
-            color: "#b9c2ca",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 21,
-            letterSpacing: 3,
-            marginBottom: 20,
-          }}
-        >
-          ВХІДНИЙ ДЗВІНОК
-        </div>
-        <div
-          style={{
-            width: 92,
-            height: 92,
-            margin: "0 auto 22px",
-            borderRadius: "50%",
-            backgroundColor: "#8f3034",
-            color: "#ffffff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 42,
-            fontWeight: 700,
-          }}
-        >
-          !
-        </div>
-        <div
-          style={{
-            color: "#ffffff",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 37,
-            fontWeight: 700,
-            letterSpacing: 1,
-          }}
-        >
-          ВІЙСЬКОВА ЧАСТИНА
-        </div>
-        <div
-          style={{
-            color: "#c9a575",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 20,
-            marginTop: 14,
-            letterSpacing: 2,
-          }}
-        >
-          НЕВІДОМО, ХТО НА ІНШОМУ КІНЦІ
-        </div>
-      </div>
     </AbsoluteFill>
   );
 };

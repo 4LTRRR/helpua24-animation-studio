@@ -206,7 +206,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="Episode-01-Raport"
           component={HELPUA24Episode01}
-          durationInFrames={2670}
+          durationInFrames={2850}
           fps={30}
           width={1080}
           height={1920}

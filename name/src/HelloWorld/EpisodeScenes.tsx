@@ -409,20 +409,29 @@ export const PhoneCallScene: React.FC = () => (
   </AbsoluteFill>
 );
 
-export const StampRevealScene: React.FC = () => {
+type StampRevealVariant = "detail" | "foreign";
+
+export const StampRevealScene: React.FC<{ variant?: StampRevealVariant }> = ({
+  variant = "detail",
+}) => {
   const frame = useCurrentFrame();
   const zoom = interpolate(frame, [0, 180], [0.88, 1.12]);
   const ring = interpolate(Math.sin(frame / 8), [-1, 1], [0.35, 0.9]);
+  const stampText = variant === "detail" ? "ВІДБИТОК\nПЕЧАТКИ" : "ІНШИЙ\nПІДРОЗДІЛ";
+  const heading = variant === "detail"
+    ? "КРУПНИЙ ПЛАН ПЕЧАТКИ"
+    : "ПЕЧАТКА НАЛЕЖИТЬ ІНШОМУ ПІДРОЗДІЛУ";
+
   return (
     <AbsoluteFill style={{ background: "linear-gradient(145deg, #30383b, #10171b)", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: "12% 8%", background: "#e9e5d9", padding: 44, boxShadow: "0 30px 90px rgba(0,0,0,0.55)", transform: `scale(${zoom}) rotate(-2deg)` }}>
-        <div style={{ color: "#30383b", fontSize: 26, textAlign: "center", fontWeight: 800, letterSpacing: 3 }}>РАПОРТ ПРО СТАЦІОНАРНЕ ЛІКУВАННЯ</div>
+        <div style={{ color: "#30383b", fontSize: 26, textAlign: "center", fontWeight: 800, letterSpacing: 3 }}>{heading}</div>
         <div style={{ marginTop: 60, height: 6, background: "#a8aaa4" }} />
         <div style={{ marginTop: 25, height: 6, width: "86%", background: "#b7b9b1" }} />
         <div style={{ marginTop: 25, height: 6, width: "92%", background: "#b7b9b1" }} />
         <div style={{ marginTop: 25, height: 6, width: "72%", background: "#b7b9b1" }} />
-        <div style={{ position: "absolute", right: "12%", bottom: "17%", width: 220, height: 220, border: `9px solid rgba(148,52,55,${ring})`, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#963b3e", fontSize: 25, fontWeight: 800, textAlign: "center", transform: "rotate(-14deg)" }}>
-          ПЕЧАТКА<br />ІНШОГО<br />ПІДРОЗДІЛУ
+        <div style={{ position: "absolute", right: "12%", bottom: "17%", width: 220, height: 220, border: `9px solid rgba(148,52,55,${ring})`, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#963b3e", fontSize: 25, fontWeight: 800, textAlign: "center", transform: "rotate(-14deg)", whiteSpace: "pre-line" }}>
+          {stampText}
         </div>
         <div style={{ position: "absolute", left: "12%", bottom: "15%", color: "#963b3e", fontSize: 22, fontWeight: 800 }}>ВХ. № 0418</div>
       </div>

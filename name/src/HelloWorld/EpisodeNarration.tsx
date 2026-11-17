@@ -1,7 +1,6 @@
 import React from "react";
 import {
   AbsoluteFill,
-  interpolate,
   useCurrentFrame,
 } from "remotion";
 
@@ -14,97 +13,97 @@ type NarrationCue = {
 const cues: NarrationCue[] = [
   {
     start: 0,
-    end: 148,
+    end: 154,
     text: "Три дні тому він подав рапорт: лікарі наполягали на стаціонарному обстеженні.",
   },
   {
-    start: 148,
-    end: 281,
+    start: 154,
+    end: 289,
     text: "У відповідь почув лише одне: «Чекай. Зараз не до цього».",
   },
   {
-    start: 281,
-    end: 398,
+    start: 289,
+    end: 402,
     text: "Він чекав. Біль посилювався. А рапорт так і не повернувся з резолюцією.",
   },
   {
-    start: 398,
-    end: 592,
+    start: 402,
+    end: 596,
     text: "На третій день йому сказали, що такого документа взагалі не надходило.",
   },
   {
-    start: 592,
-    end: 660,
+    start: 596,
+    end: 667,
     text: "Але в нього залишилася копія. І на ній був вхідний номер.",
   },
   {
-    start: 660,
-    end: 785,
+    start: 667,
+    end: 789,
     text: "Він надіслав фото адвокату. Той одразу попросив не видаляти жодного повідомлення.",
   },
   {
-    start: 785,
-    end: 932,
+    start: 789,
+    end: 938,
     text: "Дата була. Підпис був. Та підтвердження, куди саме передали рапорт, не було.",
   },
   {
-    start: 932,
-    end: 1104,
+    start: 938,
+    end: 1110,
     text: "Адвокат почав перевіряти шлях документа. І знайшов дивну невідповідність.",
   },
   {
-    start: 1104,
-    end: 1227,
+    start: 1110,
+    end: 1232,
     text: "У журналі за цим номером значилося зовсім інше звернення.",
   },
   {
-    start: 1227,
-    end: 1383,
+    start: 1232,
+    end: 1389,
     text: "Два різні рапорти. Один номер. Одна дата. Такого збігу не мало бути.",
   },
   {
-    start: 1383,
-    end: 1558,
+    start: 1389,
+    end: 1564,
     text: "Військовий зрозумів: хтось дуже хотів, щоб його звернення зникло без сліду.",
   },
   {
-    start: 1558,
-    end: 1707,
+    start: 1564,
+    end: 1710,
     text: "І саме тоді на телефон прийшло повідомлення з невідомого номера.",
   },
   {
-    start: 1707,
-    end: 1828,
+    start: 1710,
+    end: 1834,
     text: "«Забери рапорт. Інакше матимеш проблеми».",
   },
   {
-    start: 1828,
-    end: 2017,
+    start: 1834,
+    end: 2025,
     text: "Він перечитав ці слова тричі. А потім зателефонував адвокату.",
   },
   {
-    start: 2017,
-    end: 2129,
+    start: 2025,
+    end: 2179,
     text: "Адвокат знову збільшив фото. Тепер його увагу привернула печатка.",
   },
   {
-    start: 2129,
-    end: 2232,
+    start: 2179,
+    end: 2317,
     text: "Вона виглядала справжньою. Але належала зовсім іншому підрозділу.",
   },
   {
-    start: 2232,
-    end: 2309,
+    start: 2317,
+    end: 2380,
     text: "Це вже не було схоже на звичайну помилку в документах.",
   },
   {
-    start: 2309,
-    end: 2435,
+    start: 2380,
+    end: 2502,
     text: "Адвокат зрозумів: хтось не просто загубив рапорт. Хтось залишив підказку.",
   },
   {
-    start: 2435,
-    end: 2577,
+    start: 2502,
+    end: 2578,
     text: "І тоді задзвонив телефон. На екрані — номер військової частини.",
   },
 ];
@@ -113,14 +112,7 @@ export const EpisodeNarration: React.FC = () => {
   const frame = useCurrentFrame();
   const cue = cues.find((item) => frame >= item.start && frame < item.end);
 
-  const opacity = cue
-    ? interpolate(
-        frame,
-        [cue.start, cue.start + 12, cue.end - 12, cue.end],
-        [0, 1, 1, 0],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
-    : 0;
+  const opacity = cue ? 1 : 0;
 
   return (
     <AbsoluteFill style={{ pointerEvents: "none", zIndex: 30 }}>
@@ -158,7 +150,7 @@ export const EpisodeNarration: React.FC = () => {
             borderRadius: 8,
             boxShadow: "0 16px 50px rgba(0,0,0,0.32)",
             opacity,
-            transform: `translateY(${interpolate(opacity, [0, 1], [18, 0])}px)`,
+            transform: "translateY(0px)",
           }}
         >
           <div

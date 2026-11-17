@@ -16,7 +16,9 @@ import {
   SendingReportScene,
   LawyerInvestigationScene,
   JournalMismatchScene,
+  SuspicionScene,
   ThreatScene,
+  ThreatCloseupScene,
   PhoneCallScene,
   StampRevealScene,
   FinalCallScene,
@@ -59,17 +61,17 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 33–40 с: фото документа потрапляє до адвоката */}
       <Sequence from={990} durationInFrames={210}>
-        <LawyerInvestigationScene />
+        <LawyerInvestigationScene variant="photo" />
       </Sequence>
 
       {/* 40–47 с: адвокат звіряє дату, підпис і шлях документа */}
       <Sequence from={1200} durationInFrames={210}>
-        <LawyerInvestigationScene />
+        <LawyerInvestigationScene variant="verification" />
       </Sequence>
 
       {/* 47–54 с: адвокат перевіряє журнал */}
       <Sequence from={1410} durationInFrames={210}>
-        <LawyerInvestigationScene />
+        <LawyerInvestigationScene variant="route" />
       </Sequence>
 
       {/* 54–60 с: у журналі виявляється інший документ */}
@@ -84,7 +86,7 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 67–74 с: військовий розуміє, що ситуація підозріла */}
       <Sequence from={2010} durationInFrames={210}>
-        <ThreatScene />
+        <SuspicionScene />
       </Sequence>
 
       {/* 74–80 с: надходить повідомлення з невідомого номера */}
@@ -94,7 +96,7 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 80–86 с: пряма погроза */}
       <Sequence from={2400} durationInFrames={180}>
-        <ThreatScene />
+        <ThreatCloseupScene />
       </Sequence>
 
       {/* 86–92 с: військовий телефонує адвокату */}
@@ -104,7 +106,7 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 92–99 с: адвокат повторно збільшує фото */}
       <Sequence from={2760} durationInFrames={210}>
-        <LawyerInvestigationScene />
+        <LawyerInvestigationScene variant="stamp" />
       </Sequence>
 
       {/* 99–106 с: крупний план печатки */}
@@ -119,7 +121,7 @@ const HELPUA24Episode01: React.FC = () => {
 
       {/* 113–118 с: адвокат усвідомлює, що це не проста помилка */}
       <Sequence from={3390} durationInFrames={150}>
-        <LawyerInvestigationScene />
+        <LawyerInvestigationScene variant="clue" />
       </Sequence>
 
       {/* 118–120 с: дзвінок із військової частини — обрив на інтригі */}

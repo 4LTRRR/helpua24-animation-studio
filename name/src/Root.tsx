@@ -15,7 +15,7 @@ const HELPUA24Episode01: React.FC = () => {
   return (
     <>
       {/* 0–3 с: вступ і назва серії */}
-      <Sequence from={0} durationInFrames={90}>
+      <Sequence durationInFrames={90}>
         <HelloWorld
           titleText="HELPUA24"
           titleColor="#FFFFFF"

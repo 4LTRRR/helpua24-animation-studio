@@ -41,17 +41,17 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 8,2–12,7 с: очікування відповіді */}
-      <Sequence from={244} durationInFrames={135}>
+      <Sequence from={244} durationInFrames={119}>
         <WaitingScene />
       </Sequence>
 
       {/* 12,7–16,6 с: стан здоров'я погіршується */}
-      <Sequence from={379} durationInFrames={113}>
+      <Sequence from={363} durationInFrames={129}>
         <MedicalScene />
       </Sequence>
 
       {/* 16,6–23,0 с: у частині стверджують, що рапорт не надходив */}
-      <Sequence from={492} durationInFrames={194}>
+      <Sequence from={480} durationInFrames={206}>
         <MissingReportScene />
       </Sequence>
 

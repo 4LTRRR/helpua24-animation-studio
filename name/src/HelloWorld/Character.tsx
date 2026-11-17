@@ -363,7 +363,7 @@ export const Character: React.FC<CharacterProps> = ({
           {/* ЛІВА НОГА — ДИНАМІЧНА ГЕОМЕТРІЯ */}
           <path
             d={leftLegPose.thighPath}
-            fill="url(#${gradientPrefix}-uniform)"
+            fill={`url(#${gradientPrefix}-uniform)`}
             stroke="#263328"
             strokeWidth="5"
             strokeLinejoin="round"
@@ -428,7 +428,7 @@ export const Character: React.FC<CharacterProps> = ({
           {/* ПРАВА НОГА — ДИНАМІЧНА ГЕОМЕТРІЯ */}
           <path
             d={rightLegPose.thighPath}
-            fill="url(#${gradientPrefix}-uniform)"
+            fill={`url(#${gradientPrefix}-uniform)`}
             stroke="#263328"
             strokeWidth="5"
             strokeLinejoin="round"
@@ -493,7 +493,7 @@ export const Character: React.FC<CharacterProps> = ({
           {/* КОРПУС */}
           <path
             d="M105 178 Q150 160 195 178 L219 337 Q150 365 81 337Z"
-            fill="url(#${gradientPrefix}-uniform)"
+            fill={`url(#${gradientPrefix}-uniform)`}
             stroke="#263529"
             strokeWidth="7"
           />
@@ -522,7 +522,7 @@ export const Character: React.FC<CharacterProps> = ({
           <g transform={`rotate(${leftArm} 100 190)`}>
             <path
               d="M105 185 Q81 176 73 207 L65 249 L91 260 L111 223Z"
-              fill="url(#${gradientPrefix}-uniform)"
+              fill={`url(#${gradientPrefix}-uniform)`}
               stroke="#263529"
               strokeWidth="6"
             />
@@ -568,7 +568,7 @@ export const Character: React.FC<CharacterProps> = ({
           <g transform={`rotate(${rightArm} 200 190)`}>
             <path
               d="M195 185 Q219 176 227 207 L235 249 L209 260 L189 223Z"
-              fill="url(#${gradientPrefix}-uniform)"
+              fill={`url(#${gradientPrefix}-uniform)`}
               stroke="#263529"
               strokeWidth="6"
             />
@@ -626,7 +626,7 @@ export const Character: React.FC<CharacterProps> = ({
           {/* БРОНЕЖИЛЕТ */}
           <path
             d="M111 187 L189 187 L207 337 Q150 354 93 337Z"
-            fill="url(#${gradientPrefix}-vest)"
+            fill={`url(#${gradientPrefix}-vest)`}
             stroke="#1D2A21"
             strokeWidth="7"
           />
@@ -772,7 +772,7 @@ export const Character: React.FC<CharacterProps> = ({
             width="40"
             height="49"
             rx="10"
-            fill="url(#${gradientPrefix}-skin)"
+            fill={`url(#${gradientPrefix}-skin)`}
             stroke="#704B3B"
             strokeWidth="3"
           />
@@ -787,7 +787,7 @@ export const Character: React.FC<CharacterProps> = ({
             {/* ОБЛИЧЧЯ */}
             <path
               d="M98 84 Q98 47 150 44 Q202 47 202 84 L198 137 Q191 169 150 178 Q109 169 102 137Z"
-              fill="url(#${gradientPrefix}-skin)"
+              fill={`url(#${gradientPrefix}-skin)`}
               stroke="#704B3B"
               strokeWidth="3"
             />
@@ -801,7 +801,7 @@ export const Character: React.FC<CharacterProps> = ({
             {/* ШОЛОМ */}
             <path
               d="M84 89 Q80 22 150 14 Q220 22 216 89 L226 101 L74 101Z"
-              fill="url(#${gradientPrefix}-helmet)"
+              fill={`url(#${gradientPrefix}-helmet)`}
               stroke="#202E24"
               strokeWidth="6"
             />

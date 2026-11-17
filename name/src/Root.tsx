@@ -36,105 +36,109 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 3–8,2 с: військовий пише рапорт */}
-      <Sequence from={90} durationInFrames={58}>
+      <Sequence from={90} durationInFrames={148}>
         <ReportWritingScene />
       </Sequence>
 
       {/* 8,2–12,7 с: очікування відповіді */}
-      <Sequence from={148} durationInFrames={133}>
+      <Sequence from={238} durationInFrames={133}>
         <WaitingScene />
       </Sequence>
 
       {/* 12,7–16,6 с: стан здоров'я погіршується */}
-      <Sequence from={281} durationInFrames={117}>
+      <Sequence from={371} durationInFrames={117}>
         <MedicalScene />
       </Sequence>
 
       {/* 16,6–23,0 с: у частині стверджують, що рапорт не надходив */}
-      <Sequence from={398} durationInFrames={194}>
+      <Sequence from={488} durationInFrames={194}>
         <MissingReportScene />
       </Sequence>
 
       {/* 23,0–25,3 с: у військового залишається копія з номером */}
-      <Sequence from={592} durationInFrames={68}>
+      <Sequence from={682} durationInFrames={68}>
         <ReportCopyScene />
       </Sequence>
 
       {/* 25,3–29,5 с: фото документа потрапляє до адвоката */}
-      <Sequence from={660} durationInFrames={125}>
+      <Sequence from={750} durationInFrames={125}>
         <SendingReportScene />
       </Sequence>
 
       {/* 29,5–34,4 с: адвокат звіряє дату, підпис і шлях документа */}
-      <Sequence from={785} durationInFrames={147}>
+      <Sequence from={875} durationInFrames={147}>
         <LawyerInvestigationScene variant="verification" />
       </Sequence>
 
       {/* 34,4–40,1 с: адвокат перевіряє журнал */}
-      <Sequence from={932} durationInFrames={172}>
+      <Sequence from={1022} durationInFrames={172}>
         <LawyerInvestigationScene variant="route" />
       </Sequence>
 
       {/* 40,1–44,2 с: у журналі виявляється інший документ */}
-      <Sequence from={1104} durationInFrames={123}>
+      <Sequence from={1194} durationInFrames={123}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* 44,2–49,4 с: два різні документи мають один номер */}
-      <Sequence from={1227} durationInFrames={156}>
+      <Sequence from={1317} durationInFrames={156}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* 49,4–55,2 с: військовий розуміє, що ситуація підозріла */}
-      <Sequence from={1383} durationInFrames={175}>
+      <Sequence from={1473} durationInFrames={175}>
         <MilitaryScene />
       </Sequence>
 
       {/* 55,2–60,2 с: надходить повідомлення з невідомого номера */}
-      <Sequence from={1558} durationInFrames={149}>
+      <Sequence from={1648} durationInFrames={149}>
         <ThreatScene />
       </Sequence>
 
       {/* 60,2–64,2 с: пряма погроза */}
-      <Sequence from={1707} durationInFrames={121}>
+      <Sequence from={1797} durationInFrames={121}>
         <ThreatCloseupScene />
       </Sequence>
 
       {/* 64,2–70,5 с: військовий телефонує адвокату */}
-      <Sequence from={1828} durationInFrames={189}>
+      <Sequence from={1918} durationInFrames={189}>
         <PhoneCallScene />
       </Sequence>
 
       {/* 70,5–74,2 с: адвокат повторно збільшує фото */}
-      <Sequence from={2017} durationInFrames={112}>
+      <Sequence from={2107} durationInFrames={112}>
         <LawyerInvestigationScene variant="stamp" />
       </Sequence>
 
       {/* 74,2–77,6 с: крупний план печатки */}
-      <Sequence from={2129} durationInFrames={103}>
+      <Sequence from={2219} durationInFrames={103}>
         <StampRevealScene variant="detail" />
       </Sequence>
 
       {/* 77,6–80,2 с: стає зрозуміло, що печатка чужа */}
-      <Sequence from={2232} durationInFrames={77}>
+      <Sequence from={2322} durationInFrames={77}>
         <StampRevealScene variant="foreign" />
       </Sequence>
 
       {/* 80,2–84,4 с: адвокат усвідомлює, що це не проста помилка */}
-      <Sequence from={2309} durationInFrames={126}>
+      <Sequence from={2399} durationInFrames={126}>
         <LawyerInvestigationScene variant="clue" />
       </Sequence>
 
       {/* 84,4–90 с: дзвінок із військової частини — обрив на інтригі */}
-      <Sequence from={2435} durationInFrames={142}>
+      <Sequence from={2525} durationInFrames={142}>
         <FinalCallScene />
       </Sequence>
 
-      {/* Озвучка починається з 0:00; швидкість відтворення — оригінальна */}
-      <Audio playbackRate={1} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
+      {/* Озвучка починається з першої сюжетної сцени, після заставки */}
+      <Sequence from={90}>
+        <Audio playbackRate={1} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
+      </Sequence>
 
-      {/* Субтитри синхронізовані з початком озвучки */}
-      <EpisodeNarration />
+      {/* Субтитри починаються разом з озвучкою після заставки */}
+      <Sequence from={90}>
+        <EpisodeNarration />
+      </Sequence>
     </>
   );
 };
@@ -187,7 +191,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="HELPUA24-Story"
           component={HELPUA24Episode01}
-          durationInFrames={2580}
+          durationInFrames={2670}
           fps={30}
           width={1080}
           height={1920}

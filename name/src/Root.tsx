@@ -41,92 +41,92 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 10–16 с: очікування відповіді */}
-      <Sequence from={244} durationInFrames={133}>
+      <Sequence from={244} durationInFrames={131}>
         <WaitingScene />
       </Sequence>
 
       {/* 16–22 с: стан здоров'я погіршується */}
-      <Sequence from={377} durationInFrames={132}>
+      <Sequence from={375} durationInFrames={132}>
         <MedicalScene />
       </Sequence>
 
       {/* 22–28 с: у частині стверджують, що рапорт не надходив */}
-      <Sequence from={509} durationInFrames={132}>
+      <Sequence from={507} durationInFrames={131}>
         <MissingReportScene />
       </Sequence>
 
       {/* 28–33 с: у військового залишається копія з номером */}
-      <Sequence from={641} durationInFrames={111}>
+      <Sequence from={638} durationInFrames={110}>
         <ReportCopyScene />
       </Sequence>
 
       {/* 33–40 с: фото документа потрапляє до адвоката */}
-      <Sequence from={752} durationInFrames={154}>
+      <Sequence from={748} durationInFrames={153}>
         <SendingReportScene />
       </Sequence>
 
       {/* 40–47 с: адвокат звіряє дату, підпис і шлях документа */}
-      <Sequence from={906} durationInFrames={154}>
+      <Sequence from={901} durationInFrames={154}>
         <LawyerInvestigationScene variant="verification" />
       </Sequence>
 
       {/* 47–54 с: адвокат перевіряє журнал */}
-      <Sequence from={1060} durationInFrames={155}>
+      <Sequence from={1055} durationInFrames={154}>
         <LawyerInvestigationScene variant="route" />
       </Sequence>
 
       {/* 54–60 с: у журналі виявляється інший документ */}
-      <Sequence from={1215} durationInFrames={132}>
+      <Sequence from={1209} durationInFrames={131}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* 60–67 с: два різні документи мають один номер */}
-      <Sequence from={1347} durationInFrames={154}>
+      <Sequence from={1340} durationInFrames={154}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* 67–74 с: військовий розуміє, що ситуація підозріла */}
-      <Sequence from={1501} durationInFrames={155}>
+      <Sequence from={1494} durationInFrames={153}>
         <MilitaryScene />
       </Sequence>
 
       {/* 74–80 с: надходить повідомлення з невідомого номера */}
-      <Sequence from={1656} durationInFrames={132}>
+      <Sequence from={1647} durationInFrames={132}>
         <ThreatScene />
       </Sequence>
 
       {/* 80–86 с: пряма погроза */}
-      <Sequence from={1788} durationInFrames={132}>
+      <Sequence from={1779} durationInFrames={131}>
         <ThreatCloseupScene />
       </Sequence>
 
       {/* 86–92 с: військовий телефонує адвокату */}
-      <Sequence from={1920} durationInFrames={133}>
+      <Sequence from={1910} durationInFrames={132}>
         <PhoneCallScene />
       </Sequence>
 
       {/* 92–99 с: адвокат повторно збільшує фото */}
-      <Sequence from={2053} durationInFrames={154}>
+      <Sequence from={2042} durationInFrames={153}>
         <LawyerInvestigationScene variant="stamp" />
       </Sequence>
 
       {/* 99–106 с: крупний план печатки */}
-      <Sequence from={2207} durationInFrames={154}>
+      <Sequence from={2195} durationInFrames={154}>
         <StampRevealScene variant="detail" />
       </Sequence>
 
       {/* 106–113 с: стає зрозуміло, що печатка чужа */}
-      <Sequence from={2361} durationInFrames={155}>
+      <Sequence from={2349} durationInFrames={153}>
         <StampRevealScene variant="foreign" />
       </Sequence>
 
       {/* 113–118 с: адвокат усвідомлює, що це не проста помилка */}
-      <Sequence from={2516} durationInFrames={110}>
+      <Sequence from={2502} durationInFrames={110}>
         <LawyerInvestigationScene variant="clue" />
       </Sequence>
 
       {/* 118–120 с: дзвінок із військової частини — обрив на інтригі */}
-      <Sequence from={2626} durationInFrames={44}>
+      <Sequence from={2612} durationInFrames={88}>
         <FinalCallScene />
       </Sequence>
 
@@ -191,7 +191,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="HELPUA24-Story"
           component={HELPUA24Episode01}
-          durationInFrames={2670}
+          durationInFrames={2700}
           fps={30}
           width={1080}
           height={1920}

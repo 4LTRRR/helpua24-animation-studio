@@ -417,7 +417,7 @@ export const StampRevealScene: React.FC<{ variant?: StampRevealVariant }> = ({
   const frame = useCurrentFrame();
   const zoom = interpolate(frame, [0, 180], [0.88, 1.12]);
   const ring = interpolate(Math.sin(frame / 8), [-1, 1], [0.35, 0.9]);
-  const stampText = variant === "detail" ? "ВІДБИТОК\nПЕЧАТКИ" : "ІНШИЙ\nПІДРОЗДІЛ";
+  const stampText = variant === "detail" ? "ВІДБИТОК" : "ЧУЖИЙ ПІДРОЗДІЛ";
   const heading = variant === "detail"
     ? "КРУПНИЙ ПЛАН ПЕЧАТКИ"
     : "ПЕЧАТКА НАЛЕЖИТЬ ІНШОМУ ПІДРОЗДІЛУ";

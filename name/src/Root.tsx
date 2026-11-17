@@ -1,5 +1,5 @@
 import React from "react";
-import { Composition, Folder, Sequence } from "remotion";
+import { Audio, Composition, Folder, Sequence, staticFile } from "remotion";
 
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
@@ -130,7 +130,12 @@ const HELPUA24Episode01: React.FC = () => {
         <FinalCallScene />
       </Sequence>
 
-      {/* Закадрова історія, повідомлення та фінальний дзвінок */}
+      {/* Оригінальна озвучка починається разом із першою реплікою */}
+      <Sequence from={90}>
+        <Audio src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
+      </Sequence>
+
+      {/* Субтитри та назва епізоду */}
       <EpisodeNarration />
     </>
   );

@@ -148,13 +148,13 @@ export const EpisodeNarration: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            left: "6%",
-            right: "6%",
-            bottom: 175,
-            padding: "30px 34px",
+            left: 64,
+            right: 180,
+            bottom: 440,
+            padding: "22px 26px",
             background:
               "linear-gradient(110deg, rgba(7, 12, 17, 0.94), rgba(17, 24, 31, 0.84))",
-            borderLeft: "6px solid #b78b55",
+            borderLeft: "5px solid #b78b55",
             borderRadius: 8,
             boxShadow: "0 16px 50px rgba(0,0,0,0.32)",
             opacity,
@@ -163,12 +163,12 @@ export const EpisodeNarration: React.FC = () => {
         >
           <div
             style={{
-              marginBottom: 12,
+              marginBottom: 8,
               color: "#c9a575",
               fontFamily: "Arial, sans-serif",
-              fontSize: 19,
+              fontSize: 15,
               fontWeight: 700,
-              letterSpacing: 3,
+              letterSpacing: 2,
             }}
           >
             РАПОРТ, ЯКОГО НІХТО НЕ БАЧИТЬ
@@ -177,9 +177,9 @@ export const EpisodeNarration: React.FC = () => {
             style={{
               color: "#ffffff",
               fontFamily: "Arial, sans-serif",
-              fontSize: 39,
-              lineHeight: 1.24,
-              fontWeight: 600,
+              fontSize: 34,
+              lineHeight: 1.22,
+              fontWeight: 700,
               textShadow: "0 2px 8px rgba(0,0,0,0.45)",
             }}
           >

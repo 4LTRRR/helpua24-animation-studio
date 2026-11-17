@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Easing, interpolate, random, useCurrentFrame, useVideoConfig } from "remotion";
+import React from "react";
+import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 
 export const Atom: React.FC<{
   color1: string;
@@ -9,7 +9,7 @@ export const Atom: React.FC<{
   const frame = useCurrentFrame();
 
   // Each SVG ID must be unique to not conflict with each other
-  const [gradientId] = useState(() => String(random(null)));
+  const gradientId = React.useId().replace(/:/g, "");
 
   return (
     <svg

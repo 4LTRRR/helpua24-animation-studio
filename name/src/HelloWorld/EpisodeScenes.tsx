@@ -227,7 +227,7 @@ export const MedicalScene: React.FC = () => (
 export const MissingReportScene: React.FC = () => {
   const frame = useCurrentFrame();
   const zoom = interpolate(frame, [0, 180], [1, 1.08]);
-  const missingRecordOpacity = interpolate(frame, [84, 96], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const missingRecordOpacity = interpolate(frame, [72, 82], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill style={{ overflow: "hidden" }}>
       <AdminBackground />

@@ -20,7 +20,6 @@ import {
   LawyerInvestigationScene,
   JournalMismatchScene,
   ThreatScene,
-  ThreatCloseupScene,
   PhoneCallScene,
   StampRevealScene,
   FinalCallScene,
@@ -81,13 +80,13 @@ const HELPUA24Episode01: React.FC = () => {
         <JournalMismatchScene />
       </Sequence>
 
-      {/* 47–55 с: тримаємо військового до завершення фрази диктора */}
-      <Sequence from={1410} durationInFrames={240}>
+      {/* 47–56 с: тримаємо військового до завершення фрази диктора */}
+      <Sequence from={1410} durationInFrames={270}>
         <MilitaryScene />
       </Sequence>
 
-      {/* 55–62 с: тримаємо SMS на екрані до завершення озвучки погрози */}
-      <Sequence from={1650} durationInFrames={210}>
+      {/* 56–62 с: SMS з’являється після завершення попередньої фрази */}
+      <Sequence from={1680} durationInFrames={180}>
         <ThreatScene />
       </Sequence>
 

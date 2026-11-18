@@ -81,13 +81,13 @@ const HELPUA24Episode01: React.FC = () => {
         <JournalMismatchScene />
       </Sequence>
 
-      {/* 47–52 с: реакція військового — без передчасного SMS */}
-      <Sequence from={1410} durationInFrames={150}>
+      {/* 47–55 с: тримаємо військового до завершення фрази диктора */}
+      <Sequence from={1410} durationInFrames={240}>
         <MilitaryScene />
       </Sequence>
 
-      {/* 52–57 с: повідомлення з'являється лише після підводки диктора */}
-      <Sequence from={1560} durationInFrames={150}>
+      {/* 55–57 с: SMS з'являється лише після завершення фрази про зниклий рапорт */}
+      <Sequence from={1650} durationInFrames={60}>
         <ThreatScene />
       </Sequence>
 

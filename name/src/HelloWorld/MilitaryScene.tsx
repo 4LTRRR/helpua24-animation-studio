@@ -252,6 +252,7 @@ export const MilitaryScene: React.FC = () => {
             emotion="neutral"
             pose="walking"
             animationSpeed={1}
+            entranceFrameOffset={24}
           />
         </AbsoluteFill>
       </AbsoluteFill>

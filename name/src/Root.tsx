@@ -56,83 +56,83 @@ const HELPUA24Episode01: React.FC = () => {
         <MissingReportScene />
       </Sequence>
 
-      {/* 22,7–32,1 с: у військового залишається копія з вхідним номером */}
-      <Sequence from={681} durationInFrames={281}>
+      {/* 22,7–29,2 с: у військового залишається копія з вхідним номером */}
+      <Sequence from={681} durationInFrames={194}>
         <ReportCopyScene />
       </Sequence>
 
-      {/* 32,1–37,3 с: фото документа потрапляє до адвоката */}
-      <Sequence from={962} durationInFrames={157}>
+      {/* 29,2–37,3 с: фото документа потрапляє до адвоката */}
+      <Sequence from={875} durationInFrames={243}>
         <SendingReportScene />
       </Sequence>
 
       {/* 37,3–43,9 с: адвокат звіряє дату, підпис і шлях документа */}
-      <Sequence from={1119} durationInFrames={199}>
+      <Sequence from={1118} durationInFrames={199}>
         <LawyerInvestigationScene variant="verification" />
       </Sequence>
 
       {/* 43,9–49,2 с: адвокат перевіряє журнал */}
-      <Sequence from={1318} durationInFrames={157}>
+      <Sequence from={1317} durationInFrames={157}>
         <LawyerInvestigationScene variant="route" />
       </Sequence>
 
       {/* 49,2–55 с: у журналі виявляється інший документ */}
-      <Sequence from={1475} durationInFrames={175}>
+      <Sequence from={1474} durationInFrames={175}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* 55–58,7 с: два різні документи мають один номер */}
-      <Sequence from={1650} durationInFrames={110}>
+      <Sequence from={1649} durationInFrames={110}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* 58,7–64 с: військовий розуміє, що ситуація підозріла */}
-      <Sequence from={1760} durationInFrames={160}>
+      <Sequence from={1759} durationInFrames={160}>
         <MilitaryScene />
       </Sequence>
 
       {/* 64–70,4 с: надходить повідомлення з невідомого номера */}
-      <Sequence from={1920} durationInFrames={191}>
+      <Sequence from={1919} durationInFrames={191}>
         <ThreatScene />
       </Sequence>
 
-      {/* 70,4–73,9 с: пряма погроза */}
-      <Sequence from={2111} durationInFrames={107}>
+      {/* 70,3–72,3 с: пряма погроза */}
+      <Sequence from={2110} durationInFrames={58}>
         <ThreatCloseupScene />
       </Sequence>
 
-      {/* 73,9–77,3 с: військовий телефонує адвокату */}
-      <Sequence from={2218} durationInFrames={103}>
+      {/* 72,3–75,5 с: військовий телефонує адвокату */}
+      <Sequence from={2168} durationInFrames={98}>
         <PhoneCallScene />
       </Sequence>
 
-      {/* 77,3–80,1 с: адвокат повторно збільшує фото */}
-      <Sequence from={2321} durationInFrames={82}>
+      {/* 75,5–80,1 с: адвокат повторно збільшує фото */}
+      <Sequence from={2266} durationInFrames={137}>
         <LawyerInvestigationScene variant="stamp" />
       </Sequence>
 
       {/* 80,1–82,2 с: крупний план печатки */}
-      <Sequence from={2403} durationInFrames={64}>
+      <Sequence from={2403} durationInFrames={63}>
         <StampRevealScene variant="detail" />
       </Sequence>
 
       {/* 82,2–84,3 с: стає зрозуміло, що печатка чужа */}
-      <Sequence from={2467} durationInFrames={61}>
+      <Sequence from={2466} durationInFrames={62}>
         <StampRevealScene variant="foreign" />
       </Sequence>
 
       {/* 84,3–86,3 с: адвокат усвідомлює, що це не проста помилка */}
-      <Sequence from={2528} durationInFrames={61}>
+      <Sequence from={2528} durationInFrames={60}>
         <LawyerInvestigationScene variant="clue" />
       </Sequence>
 
-      {/* 86,3–89 с: дзвінок із військової частини — обрив на інтригі */}
-      <Sequence from={2589} durationInFrames={81}>
+      {/* 86,3–88,4 с: дзвінок із військової частини — обрив на інтригі */}
+      <Sequence from={2588} durationInFrames={63}>
         <FinalCallScene />
       </Sequence>
 
       {/* Фінальна заставка після сюжетного обриву */}
-      <Sequence from={2670} durationInFrames={180}>
+      <Sequence from={2651} durationInFrames={199}>
         <EpisodeEndCard />
       </Sequence>
 

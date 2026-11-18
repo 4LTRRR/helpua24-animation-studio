@@ -40,13 +40,13 @@ jobs:
       - name: Render episode 01
         run: |
           mkdir -p out
-          npx remotion render src/index.ts Episode-01-Raport out/episode-01-raport.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
+          npx remotion render src/index.ts Episode-01-Raport out/episode-01-preview-42-52.mp4 --frames=1260-1560 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
 
       - name: Upload rendered MP4
         uses: actions/upload-artifact@v4
         with:
-          name: episode-01-raport-mp4
-          path: name/out/episode-01-raport.mp4
+          name: episode-01-preview-42-52
+          path: name/out/episode-01-preview-42-52.mp4
           if-no-files-found: error
           retention-days: 14
 

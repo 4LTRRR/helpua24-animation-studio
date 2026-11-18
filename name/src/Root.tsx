@@ -37,12 +37,12 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 3–8 с: військовий пише рапорт */}
-      <Sequence from={90} durationInFrames={151}>
+      <Sequence from={90} durationInFrames={150}>
         <ReportWritingScene />
       </Sequence>
 
       {/* 8–12,5 с: очікування відповіді */}
-      <Sequence from={241} durationInFrames={134}>
+      <Sequence from={240} durationInFrames={135}>
         <WaitingScene />
       </Sequence>
 
@@ -52,12 +52,12 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 18,4–22,7 с: у частині стверджують, що рапорт не надходив */}
-      <Sequence from={553} durationInFrames={128}>
+      <Sequence from={553} durationInFrames={129}>
         <MissingReportScene />
       </Sequence>
 
       {/* 22,7–29,2 с: у військового залишається копія з вхідним номером */}
-      <Sequence from={681} durationInFrames={194}>
+      <Sequence from={682} durationInFrames={193}>
         <ReportCopyScene />
       </Sequence>
 
@@ -102,7 +102,7 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 72,3–75,5 с: військовий телефонує адвокату */}
-      <Sequence from={2168} durationInFrames={98}>
+      <Sequence from={2166} durationInFrames={100}>
         <PhoneCallScene />
       </Sequence>
 

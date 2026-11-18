@@ -71,18 +71,13 @@ const HELPUA24Episode01: React.FC = () => {
         <LawyerInvestigationScene variant="verification" />
       </Sequence>
 
-      {/* 38–43,3 с: перевірка шляху документа */}
-      <Sequence from={1140} durationInFrames={160}>
+      {/* 38–42,5 с: адвокат перевіряє шлях документа */}
+      <Sequence from={1140} durationInFrames={135}>
         <LawyerInvestigationScene variant="route" />
       </Sequence>
 
-      {/* 43,3–47,7 с: у журналі виявляється інший документ */}
-      <Sequence from={1300} durationInFrames={130}>
-        <JournalMismatchScene />
-      </Sequence>
-
-      {/* 47,7–49 с: два різні документи мають один номер */}
-      <Sequence from={1430} durationInFrames={40}>
+      {/* 42,5–49 с: порівняння рапорту та журналу без короткої проміжної Sequence */}
+      <Sequence from={1275} durationInFrames={195}>
         <JournalMismatchScene />
       </Sequence>
 

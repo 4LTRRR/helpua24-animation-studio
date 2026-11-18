@@ -31,7 +31,7 @@ const HELPUA24Episode01: React.FC = () => {
   return (
     <>
       {/* 0–5 с: військовий пише рапорт — історія починається одразу */}
-      <Sequence from={0} durationInFrames={150}>
+      <Sequence durationInFrames={150}>
         <ReportWritingScene />
       </Sequence>
 
@@ -121,12 +121,12 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* Озвучка починається з першого кадру; обрізано 4 кадри тиші в MP3 */}
-      <Sequence from={0}>
+      <Sequence>
         <Audio playbackRate={1} startFrom={4} src={staticFile("audio/ElevenLabs_2026-11-17T13_40_45_Maks Tsukrenko - Confident Podcast_pvc_sp96_s50_sb100_se0_b_m2.mp3")} />
       </Sequence>
 
       {/* Субтитри починаються разом з озвучкою з першого кадру */}
-      <Sequence from={0}>
+      <Sequence>
         <EpisodeNarration />
       </Sequence>
     </>

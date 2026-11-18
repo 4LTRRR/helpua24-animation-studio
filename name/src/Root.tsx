@@ -76,59 +76,59 @@ const HELPUA24Episode01: React.FC = () => {
         <LawyerInvestigationScene variant="route" />
       </Sequence>
 
-      {/* 42,5–48,4 с: порівняння рапорту та журналу; до 43 с початок сцени не змінений */}
-      <Sequence from={1275} durationInFrames={177}>
+      {/* 42,5–49 с: порівняння рапорту та журналу; сцена триває до завершення фрази */}
+      <Sequence from={1275} durationInFrames={195}>
         <JournalMismatchScene />
       </Sequence>
 
-      {/* Далі всі візуальні сцени зсунуті на 18 кадрів (0,6 с) раніше */}
-      {/* 48,4–49,4 с: військовий усвідомлює загрозу */}
-      <Sequence from={1452} durationInFrames={30}>
+      {/* Далі сцени вирівняні за таймінгами відповідних фраз озвучки */}
+      {/* 49–50 с: військовий усвідомлює загрозу */}
+      <Sequence from={1470} durationInFrames={30}>
         <MilitaryScene />
       </Sequence>
 
-      {/* 49,4–54,4 с: надходить повідомлення з невідомого номера */}
-      <Sequence from={1482} durationInFrames={150}>
+      {/* 50–55 с: надходить повідомлення з невідомого номера */}
+      <Sequence from={1500} durationInFrames={150}>
         <ThreatScene />
       </Sequence>
 
-      {/* 54,4–59,4 с: крупний план тексту погрози */}
-      <Sequence from={1632} durationInFrames={150}>
+      {/* 55–60 с: крупний план тексту погрози */}
+      <Sequence from={1650} durationInFrames={150}>
         <ThreatCloseupScene />
       </Sequence>
 
-      {/* 59,4–62,4 с: військовий телефонує адвокату */}
-      <Sequence from={1782} durationInFrames={90}>
+      {/* 60–63 с: військовий телефонує адвокату */}
+      <Sequence from={1800} durationInFrames={90}>
         <PhoneCallScene />
       </Sequence>
 
-      {/* 62,4–68,4 с: адвокат повторно збільшує фото */}
-      <Sequence from={1872} durationInFrames={180}>
+      {/* 63–69 с: адвокат повторно збільшує фото */}
+      <Sequence from={1890} durationInFrames={180}>
         <LawyerInvestigationScene variant="stamp" />
       </Sequence>
 
-      {/* 68,4–71,4 с: крупний план печатки */}
-      <Sequence from={2052} durationInFrames={90}>
+      {/* 69–72 с: крупний план печатки */}
+      <Sequence from={2070} durationInFrames={90}>
         <StampRevealScene variant="detail" />
       </Sequence>
 
-      {/* 71,4–74,4 с: стає зрозуміло, що печатка чужа */}
-      <Sequence from={2142} durationInFrames={90}>
+      {/* 72–75 с: стає зрозуміло, що печатка чужа */}
+      <Sequence from={2160} durationInFrames={90}>
         <StampRevealScene variant="foreign" />
       </Sequence>
 
-      {/* 74,4–78,4 с: адвокат знаходить підказку */}
-      <Sequence from={2232} durationInFrames={120}>
+      {/* 75–79 с: адвокат знаходить підказку */}
+      <Sequence from={2250} durationInFrames={120}>
         <LawyerInvestigationScene variant="clue" />
       </Sequence>
 
-      {/* 78,4–87,8 с: дзвінок із військової частини — обрив на інтригі */}
-      <Sequence from={2352} durationInFrames={281}>
+      {/* 79–88,4 с: дзвінок із військової частини — обрив на інтригі */}
+      <Sequence from={2370} durationInFrames={281}>
         <FinalCallScene />
       </Sequence>
 
-      {/* Фінальна заставка; тривалість збільшена, щоб загальна довжина ролика не змінилася */}
-      <Sequence from={2633} durationInFrames={217}>
+      {/* Фінальна заставка; загальна довжина ролика збережена */}
+      <Sequence from={2651} durationInFrames={199}>
         <EpisodeEndCard />
       </Sequence>
 

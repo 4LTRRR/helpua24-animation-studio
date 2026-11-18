@@ -139,12 +139,13 @@ const AdminBackground: React.FC = () => {
   );
 };
 
-const SoldierLayer: React.FC<{ emotion?: "neutral" | "worried" | "tired" | "determined"; pose?: "standing" | "walking" | "talking" | "worried" }> = ({
+const SoldierLayer: React.FC<{ emotion?: "neutral" | "worried" | "tired" | "determined"; pose?: "standing" | "walking" | "talking" | "worried"; entranceFrameOffset?: number }> = ({
   emotion = "neutral",
   pose = "standing",
+  entranceFrameOffset = 0,
 }) => (
   <AbsoluteFill>
-    <Character emotion={emotion} pose={pose} animationSpeed={0.9} />
+    <Character emotion={emotion} pose={pose} animationSpeed={0.9} entranceFrameOffset={entranceFrameOffset} />
   </AbsoluteFill>
 );
 
@@ -384,7 +385,7 @@ export const ThreatScene: React.FC = () => {
   return (
     <AbsoluteFill>
       <BarracksBackground />
-      <SoldierLayer emotion="worried" pose="worried" />
+      <SoldierLayer emotion="worried" pose="worried" entranceFrameOffset={24} />
       <div style={{ position: "absolute", top: "20%", left: "8%", right: "8%", padding: 30, background: "rgba(14,19,25,0.97)", border: "1px solid rgba(255,255,255,0.2)", borderLeft: "7px solid #9a3c3d", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,0,0,0.55)", opacity: appear, transform: `translateY(${interpolate(appear, [0, 1], [-25, 0])}px)` }}>
         <div style={{ color: "#d6b98f", fontSize: 18, letterSpacing: 3, marginBottom: 18 }}>НЕВІДОМИЙ НОМЕР</div>
         <div style={{ color: "#fff", fontSize: 34, lineHeight: 1.25, fontWeight: 700 }}>«Забери рапорт. Інакше матимеш проблеми».</div>

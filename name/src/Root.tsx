@@ -102,7 +102,7 @@ const HELPUA24Episode01: React.FC = () => {
       </Sequence>
 
       {/* 72,3–75,5 с: військовий телефонує адвокату */}
-      <Sequence from={2166} durationInFrames={100}>
+      <Sequence from={2168} durationInFrames={98}>
         <PhoneCallScene />
       </Sequence>
 

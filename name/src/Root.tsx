@@ -86,14 +86,9 @@ const HELPUA24Episode01: React.FC = () => {
         <MilitaryScene />
       </Sequence>
 
-      {/* 55–57 с: SMS з'являється лише після завершення фрази про зниклий рапорт */}
-      <Sequence from={1650} durationInFrames={60}>
+      {/* 55–62 с: тримаємо SMS на екрані до завершення озвучки погрози */}
+      <Sequence from={1650} durationInFrames={210}>
         <ThreatScene />
-      </Sequence>
-
-      {/* 57–62 с: крупний план тексту погрози */}
-      <Sequence from={1710} durationInFrames={150}>
-        <ThreatCloseupScene />
       </Sequence>
 
       {/* 62–65 с: військовий телефонує адвокату */}

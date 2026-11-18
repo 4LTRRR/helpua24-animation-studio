@@ -1,4 +1,4 @@
-name: Verify Remotion project and render episode
+name: Verify Remotion project and render full episode
 
 on:
   push:
@@ -37,17 +37,15 @@ jobs:
       - name: Build Remotion bundle
         run: npm run build
 
-      - name: Render episode 01
+      - name: Render full episode 01
         run: |
           mkdir -p out
-          npx remotion render src/index.ts Episode-01-Raport out/episode-01-preview-52-66.mp4 --frames=1560-1980 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
+          npx remotion render src/index.ts Episode-01-Raport out/episode-01-full.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
 
-      - name: Upload rendered MP4
+      - name: Upload full episode MP4
         uses: actions/upload-artifact@v4
         with:
-          name: episode-01-preview-52-66
-          path: name/out/episode-01-preview-52-66.mp4
+          name: episode-01-full
+          path: name/out/episode-01-full.mp4
           if-no-files-found: error
           retention-days: 14
-
-# Trigger a fresh render after the episode timing adjustment.

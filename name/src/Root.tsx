@@ -76,14 +76,14 @@ const HELPUA24Episode01: React.FC = () => {
         <LawyerInvestigationScene variant="route" />
       </Sequence>
 
-      {/* 42,5–49 с: порівняння рапорту та журналу; сцена триває до завершення фрази */}
-      <Sequence from={1275} durationInFrames={195}>
+      {/* 42,5–47,67 с: порівняння рапорту та журналу */}
+      <Sequence from={1275} durationInFrames={155}>
         <JournalMismatchScene />
       </Sequence>
 
       {/* Далі сцени вирівняні за таймінгами відповідних фраз озвучки */}
-      {/* 49–50 с: військовий усвідомлює загрозу */}
-      <Sequence from={1470} durationInFrames={30}>
+      {/* 47,67–50 с: військовий усвідомлює загрозу */}
+      <Sequence from={1430} durationInFrames={70}>
         <MilitaryScene />
       </Sequence>
 

@@ -42,10 +42,21 @@ jobs:
           mkdir -p out
           npx remotion render src/index.ts Episode-01-Raport out/episode-01-full.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
 
+      - name: Render full episode 02
+        run: npx remotion render src/index.ts Episode-02-Who-Registered out/episode-02-full.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
+
       - name: Upload full episode MP4
         uses: actions/upload-artifact@v4
         with:
           name: episode-01-full
           path: name/out/episode-01-full.mp4
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload full episode 02 MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: episode-02-full
+          path: name/out/episode-02-full.mp4
           if-no-files-found: error
           retention-days: 14

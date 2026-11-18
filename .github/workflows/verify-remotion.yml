@@ -49,3 +49,5 @@ jobs:
           path: name/out/episode-01-raport.mp4
           if-no-files-found: error
           retention-days: 14
+
+# Trigger a fresh render after the episode timing adjustment.

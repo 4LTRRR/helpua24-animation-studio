@@ -14,6 +14,7 @@ type CharacterProps = {
   emotion?: CharacterEmotion;
   pose?: CharacterPose;
   animationSpeed?: number;
+  entranceFrameOffset?: number;
 };
 
 type Point = {
@@ -125,6 +126,7 @@ export const Character: React.FC<CharacterProps> = ({
   emotion = "neutral",
   pose = "standing",
   animationSpeed = 1,
+  entranceFrameOffset = 0,
 }) => {
   const gradientPrefix = React.useId().replace(/:/g, "");
   const frame = useCurrentFrame();
@@ -132,7 +134,7 @@ export const Character: React.FC<CharacterProps> = ({
   const t = frame * animationSpeed;
 
   const entrance = spring({
-    frame,
+    frame: frame + entranceFrameOffset,
     fps,
     config: { damping: 18, stiffness: 75 },
   });

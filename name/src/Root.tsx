@@ -10,6 +10,7 @@ import { DialogueScene } from "./HelloWorld/DialogueScene";
 import { MilitaryScene } from "./HelloWorld/MilitaryScene";
 import { EpisodeNarration } from "./HelloWorld/EpisodeNarration";
 import { EpisodeEndCard } from "./HelloWorld/EpisodeEndCard";
+import { Episode02 } from "./HelloWorld/Episode02";
 import {
   ReportWritingScene,
   WaitingScene,
@@ -192,6 +193,15 @@ export const RemotionRoot: React.FC = () => {
           id="Episode-01-Raport"
           component={HELPUA24Episode01}
           durationInFrames={2850}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+
+        <Composition
+          id="Episode-02-Who-Registered"
+          component={Episode02}
+          durationInFrames={2100}
           fps={30}
           width={1080}
           height={1920}

@@ -13,6 +13,7 @@ import { EpisodeEndCard } from "./HelloWorld/EpisodeEndCard";
 import { Episode02 } from "./HelloWorld/Episode02";
 import { Episode03 } from "./HelloWorld/Episode03";
 import { Episode04 } from "./HelloWorld/Episode04";
+import { Episode04VisualTest } from "./HelloWorld/Episode04VisualTest";
 import {
   ReportWritingScene,
   WaitingScene,
@@ -213,6 +214,15 @@ export const RemotionRoot: React.FC = () => {
           id="Episode-03-Final"
           component={Episode03}
           durationInFrames={2160}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+
+        <Composition
+          id="Episode-04-Visual-Test"
+          component={Episode04VisualTest}
+          durationInFrames={720}
           fps={30}
           width={1080}
           height={1920}

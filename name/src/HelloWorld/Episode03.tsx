@@ -48,7 +48,7 @@ const cues:Cue[]=[
 const Subtitles:React.FC=()=>{const frame=useCurrentFrame();const cue=cues.find(c=>frame>=c.start&&frame<c.end);return <AbsoluteFill style={{pointerEvents:"none",zIndex:40}}><div style={{position:"absolute",top:86,left:68,padding:"12px 18px",background:"rgba(8,13,18,.68)",borderLeft:"4px solid "+gold,color:"rgba(255,255,255,.88)",fontFamily:"Arial",fontSize:22,fontWeight:700,letterSpacing:3}}>HELPUA24 / СПРАВА № 01</div>{cue&&<div style={{...panel}}><div style={{marginBottom:10,color:gold,fontSize:15,fontWeight:700,letterSpacing:2}}>ТОЙ, ХТО ВІДДАВ НАКАЗ · ФІНАЛ</div><div style={{color:"#fff",fontSize:34,lineHeight:1.22,fontWeight:700}}>{cue.text}</div></div>}</AbsoluteFill>};
 
 export const Episode03:React.FC=()=> <AbsoluteFill>
-<Sequence from={0} durationInFrames={360}><Reveal/></Sequence>
+<Sequence durationInFrames={360}><Reveal/></Sequence>
 <Sequence from={360} durationInFrames={420}><LawyerPlan/></Sequence>
 <Sequence from={780} durationInFrames={390}><Archive/></Sequence>
 <Sequence from={1170} durationInFrames={210}><Witness/></Sequence>

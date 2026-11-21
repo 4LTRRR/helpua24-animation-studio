@@ -1,7 +1,6 @@
 import React from "react";
-import {AbsoluteFill, Composition, Sequence, interpolate, useCurrentFrame} from "remotion";
+import {AbsoluteFill, Sequence, interpolate, useCurrentFrame} from "remotion";
 
-const W=1080,H=1920;
 const C={ink:"#080d12",navy:"#101d27",blue:"#3d9bb8",amber:"#d98235",paper:"#d8d0bd",red:"#a94438",white:"#e9e4d9",muted:"#81909a"};
 const clamp={extrapolateLeft:"clamp" as const,extrapolateRight:"clamp" as const};
 const Grain:React.FC=()=> <svg style={{position:"absolute",inset:0,width:"100%",height:"100%",pointerEvents:"none",mixBlendMode:"soft-light",opacity:.22}} viewBox="0 0 1080 1920"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grain)" opacity=".38"/><path d="M0 0H1080V1920H0Z" fill="none" stroke="#d5c6a6" strokeWidth="3" opacity=".18"/></svg>;
@@ -26,7 +25,7 @@ const Surgeon:React.FC<{f:number}>=({f})=>{
   <path d="M300 1150Q540 1080 780 1150" fill="none" stroke="#d2c7b4" strokeWidth="9" opacity=".5"/>
  </g>
 };
-const Patient:React.FC<{f:number}>=({f})=><g>
+const Patient:React.FC=()=><g>
  <ellipse cx="540" cy="1320" rx="420" ry="120" fill="#030609" opacity=".65"/>
  <path d="M160 1160Q210 1000 390 980L690 980Q870 1010 930 1160L900 1430H180Z" fill="#d5d1c5"/>
  <path d="M220 1120Q330 1030 470 1050L680 1050Q820 1060 880 1150L850 1300H220Z" fill="#e9e5d9"/>
@@ -42,7 +41,7 @@ const OperatingRoom:React.FC=()=>{const f=useCurrentFrame();const zoom=interpola
  <div style={{position:"absolute",left:-90,top:430,width:1260,height:28,background:"#91a3a5",transform:"rotate(-7deg)",boxShadow:"0 0 40px #8db6c7"}}/>
  <div style={{position:"absolute",left:90,top:500,width:900,height:750,background:"linear-gradient(135deg,#c3c9c4,#52636a 50%,#18242a)",clipPath:"polygon(8% 0,100% 8%,92% 100%,0 90%)",boxShadow:"0 40px 100px #000"}}/>
  <div style={{position:"absolute",left:160,top:590,width:760,height:580,background:"linear-gradient(135deg,#e2dfd4,#a5ada8)",clipPath:"polygon(8% 0,100% 8%,92% 100%,0 90%)"}}/>
- <svg style={{position:"absolute",inset:0,width:"100%",height:"100%"}} viewBox="0 0 1080 1920"><Patient f={f}/><Surgeon f={f}/></svg>
+ <svg style={{position:"absolute",inset:0,width:"100%",height:"100%"}} viewBox="0 0 1080 1920"><Patient/><Surgeon f={f}/></svg>
  <div style={{position:"absolute",left:85,top:1350,width:910,height:245,background:"#d7d0bd",color:"#202a2e",padding:28,transform:"rotate(-3deg)",boxShadow:"0 30px 70px #000"}}><div style={{fontSize:22,fontWeight:900,letterSpacing:3}}>КАРТА АНЕСТЕЗІЇ · СТАЦІОНАР</div><div style={{fontSize:35,fontWeight:900,marginTop:28}}>07:55 — ЗАГАЛЬНА АНЕСТЕЗІЯ</div><div style={{fontSize:28,marginTop:14}}>СТАН ПАЦІЄНТА: ПІД НАРКОЗОМ</div><div style={{position:"absolute",right:24,bottom:15,border:"5px solid #a94438",color:"#a94438",padding:"7px 14px",fontSize:22,fontWeight:900,transform:"rotate(-8deg)"}}>МЕДИЧНИЙ ЗАПИС</div></div>
  <div style={{position:"absolute",right:70,top:650,color:"#f2e6cf",fontSize:140,fontWeight:950,textShadow:"0 0 40px #d98235"}}>08:00</div>
  <div style={{position:"absolute",right:90,top:815,width:320,height:8,background:C.amber,boxShadow:"0 0 25px #d98235"}}/>
@@ -91,9 +90,8 @@ const SignatureReveal:React.FC=()=>{const f=useCurrentFrame();const hand=interpo
 
 const Transition:React.FC<{children:React.ReactNode;index:number}>=({children,index})=>{const f=useCurrentFrame();const enter=interpolate(f,[0,16],[0,1],clamp);const exit=interpolate(f,[220,240],[1,0],clamp);return <AbsoluteFill style={{opacity:Math.min(enter,exit),transform:`translateX(${(1-enter)*90}px)`}}>{children}<div style={{position:"absolute",left:0,top:0,bottom:0,width:8,background:index===1?C.blue:C.amber,opacity:.85}}/></AbsoluteFill>};
 export const Episode04VisualTest:React.FC=()=> <AbsoluteFill>
- <Sequence from={0} durationInFrames={240}><Transition index={0}><OperatingRoom/></Transition></Sequence>
+ <Sequence durationInFrames={240}><Transition index={0}><OperatingRoom/></Transition></Sequence>
  <Sequence from={240} durationInFrames={240}><Transition index={1}><LawyerDesk/></Transition></Sequence>
  <Sequence from={480} durationInFrames={240}><Transition index={2}><SignatureReveal/></Transition></Sequence>
  <div style={{position:"absolute",left:55,right:55,bottom:48,height:3,background:"#64727b66"}}/>
  </AbsoluteFill>;
-export const Episode04VisualTestComposition:React.FC=()=> <Episode04VisualTest/>;

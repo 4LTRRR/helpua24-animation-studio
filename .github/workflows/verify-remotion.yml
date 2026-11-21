@@ -48,6 +48,9 @@ jobs:
       - name: Render full episode 03
         run: npx remotion render src/index.ts Episode-03-Final out/episode-03-final.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
 
+      - name: Render episode 04 visual test
+        run: npx remotion render src/index.ts Episode-04-Visual-Test out/episode-04-visual-test.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
+
       - name: Render full episode 04
         run: npx remotion render src/index.ts Episode-04-He-Could-Not-Be-There out/episode-04-final.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
 

@@ -11,6 +11,7 @@ import { MilitaryScene } from "./HelloWorld/MilitaryScene";
 import { EpisodeNarration } from "./HelloWorld/EpisodeNarration";
 import { EpisodeEndCard } from "./HelloWorld/EpisodeEndCard";
 import { Episode02 } from "./HelloWorld/Episode02";
+import { Episode03 } from "./HelloWorld/Episode03";
 import {
   ReportWritingScene,
   WaitingScene,
@@ -202,6 +203,15 @@ export const RemotionRoot: React.FC = () => {
           id="Episode-02-Who-Registered"
           component={Episode02}
           durationInFrames={2100}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+
+        <Composition
+          id="Episode-03-Final"
+          component={Episode03}
+          durationInFrames={2160}
           fps={30}
           width={1080}
           height={1920}

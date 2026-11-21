@@ -75,7 +75,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - name: Upload final episode 04 MP4
+      - name: Upload episode 04 visual test MP4\n        uses: actions/upload-artifact@v4\n        with:\n          name: episode-04-visual-test\n          path: name/out/episode-04-visual-test.mp4\n          if-no-files-found: error\n          retention-days: 14\n\n      - name: Upload final episode 04 MP4
         uses: actions/upload-artifact@v4
         with:
           name: episode-04-final

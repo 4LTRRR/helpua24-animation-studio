@@ -88,7 +88,6 @@ const SignatureReveal:React.FC=()=>{const f=useCurrentFrame();const hand=interpo
  <div style={{position:"absolute",left:80,right:80,top:870,height:4,background:C.amber,boxShadow:"0 0 35px #d98235",transform:"rotate(-2deg)"}}/>
  <Title eyebrow="ДОКАЗ №03 · ПІДПИС" headline="ЦЕЙ ОФІЦЕР ОБІЦЯВ ДОПОМОГТИ З ЛІКУВАННЯМ" frame={f}/><div style={{position:"absolute",left:80,bottom:130,color:C.amber,fontSize:28,fontWeight:900,letterSpacing:4,opacity:interpolate(f,[110,155],[0,1],clamp)}}>ІМ'Я ЗБІГАЄТЬСЯ.</div><Grain/><Dust/><Scratches/></AbsoluteFill>};
 
-const Transition:React.FC<{children:React.ReactNode;index:number}>=({children,index})=>{const f=useCurrentFrame();const enter=interpolate(f,[0,16],[0,1],clamp);const exit=interpolate(f,[220,240],[1,0],clamp);return <AbsoluteFill style={{opacity:Math.min(enter,exit),transform:`translateX(${(1-enter)*90}px)`}}>{children}<div style={{position:"absolute",left:0,top:0,bottom:0,width:8,background:index===1?C.blue:C.amber,opacity:.85}}/></AbsoluteFill>};
 const Shot:React.FC<{children:React.ReactNode; eyebrow:string; headline:string; detail:string; mode?:number}>=({children,eyebrow,headline,detail,mode=0})=>{
  const f=useCurrentFrame();
  const enter=interpolate(f,[0,18],[0,1],clamp);

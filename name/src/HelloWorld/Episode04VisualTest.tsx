@@ -18,13 +18,13 @@ const Caption:React.FC<{tag:string;title:string;sub:string}>=({tag,title,sub})=>
 <div style={{position:"absolute",bottom:105,left:55,right:55,color:C.muted,fontSize:23,fontWeight:800,letterSpacing:2,textShadow:"0 3px 15px #000"}}>{sub}</div>
 </>;
 
-const SoldierAtUnit:React.FC=()=>{const f=useCurrentFrame();const x=interpolate(f,[0,150,300],[900,560,260],clamp);return <Room light="#27343b">
+const SoldierAtUnit:React.FC=()=>{const f=useCurrentFrame();const x=interpolate(f,[0,150,300],[500,260,0],clamp);return <Room light="#27343b">
 <div style={{position:"absolute",left:0,right:0,top:"38%",height:18,background:"#46545a"}}/>
 <div style={{position:"absolute",left:90,top:650,width:900,height:650,background:"linear-gradient(135deg,#3b4942,#17221e)",border:"8px solid #59645a",boxShadow:"0 30px 70px #000"}}/>
 <div style={{position:"absolute",left:120,top:710,color:"#d9d2c4",fontSize:28,fontWeight:900,letterSpacing:4}}>ВІЙСЬКОВА ЧАСТИНА · 08:00</div>
-<div style={{position:"absolute",left:0,bottom:0,width:500,height:1300,transform:"translateX("+x+"px) scale(.95)"}}><Character pose="walking" emotion="worried" animationSpeed={1.2}/></div>
-<div style={{position:"absolute",right:60,bottom:160,width:390,height:920}}><Character pose="standing" emotion="neutral" animationSpeed={.8}/></div>
-<div style={{position:"absolute",right:70,top:620,width:380,height:210,background:"#ddd5c4",color:"#1a2429",padding:24,transform:"rotate(4deg)",boxShadow:"0 20px 55px #000"}}><div style={{fontSize:22,fontWeight:900}}>АКТ ПРО ВІДСУТНІСТЬ</div><div style={{fontSize:64,fontWeight:950,marginTop:32}}>08:00</div><div style={{color:"#a33b31",fontSize:24,fontWeight:900}}>ЗАРЕЄСТРОВАНО</div></div>
+<div style={{position:"absolute",left:80,bottom:0,width:430,height:1050,transform:"translateX("+x+"px) scale(.9)"}}><Character pose="walking" emotion="worried" animationSpeed={1.2}/></div>
+<div style={{position:"absolute",right:35,bottom:0,width:360,height:950}}><Character pose="standing" emotion="neutral" animationSpeed={.8}/></div>
+<div style={{position:"absolute",right:80,top:610,width:330,height:250,background:"#ddd5c4",color:"#1a2429",padding:22,boxShadow:"0 16px 40px #000"}}><div style={{fontSize:20,fontWeight:900}}>ЖУРНАЛ ЧАСТИНИ</div><div style={{fontSize:52,fontWeight:950,marginTop:25}}>08:00</div><div style={{fontSize:22,color:"#a33b31",fontWeight:900}}>НЕ З'ЯВИВСЯ</div></div>
 <Caption tag="СЦЕНА 01 · ВІЙСЬКОВА ЧАСТИНА" title="ЙОГО ВЖЕ ЗАПИСАЛИ ЯК ВІДСУТНЬОГО" sub="РАНКОВИЙ РАПОРТ · 08:00"/>
 </Room>};
 
@@ -50,8 +50,8 @@ const Surgeon:React.FC=()=>{const f=useCurrentFrame();const a=Math.sin(f/9)*18;c
 </g>};
 
 const OperatingRoom:React.FC=()=>{const f=useCurrentFrame();return <Room light="#234149">
-<div style={{position:"absolute",left:65,top:540,width:950,height:820,background:"linear-gradient(140deg,#657579,#1c2c32)",clipPath:"polygon(8% 0,100% 8%,92% 100%,0 90%)",boxShadow:"0 40px 90px #000"}}/>
-<div style={{position:"absolute",left:90,top:610,width:900,height:720,background:"linear-gradient(135deg,#e0e2d9,#89999a)",clipPath:"polygon(8% 0,100% 8%,92% 100%,0 90%)"}}/>
+<div style={{position:"absolute",left:100,top:510,width:880,height:900,background:"linear-gradient(140deg,#657579,#1c2c32)",clipPath:"polygon(8% 0,100% 8%,92% 100%,0 90%)",boxShadow:"0 40px 90px #000"}}/>
+<div style={{position:"absolute",left:120,top:590,width:820,height:680,background:"linear-gradient(135deg,#e0e2d9,#89999a)",clipPath:"polygon(8% 0,100% 8%,92% 100%,0 90%)"}}/>
 <svg style={{position:"absolute",inset:0,width:"100%",height:"100%"}} viewBox="0 0 1080 1920"><Patient/><Surgeon/></svg>
 <div style={{position:"absolute",right:50,top:600,width:220,height:350,background:"#1a252c",border:"8px solid #82979a",borderRadius:20,padding:20,color:"#e8e9df"}}><div style={{fontSize:22,fontWeight:900}}>МОНІТОР</div><svg width="180" height="170"><path d={"M0 90L30 90L45 "+(60+Math.sin(f/5)*8)+"L60 120L80 35L98 140L115 90L180 90"} stroke="#57c6b0" strokeWidth="5" fill="none"/></svg><div style={{fontSize:30,fontWeight:900,color:"#63cdb3"}}>ПУЛЬС 78</div></div>
 <Caption tag="СЦЕНА 02 · ОПЕРАЦІЙНА" title="АЛЕ В ЦЕЙ САМИЙ ЧАС ВІН БУВ ПІД НАРКОЗОМ" sub="07:55 · ЛІКАРІ ПРОВОДЯТЬ ОПЕРАЦІЮ"/>
@@ -59,35 +59,35 @@ const OperatingRoom:React.FC=()=>{const f=useCurrentFrame();return <Room light="
 
 const LawyerScene:React.FC=()=><Room light="#2b3038">
 <div style={{position:"absolute",left:70,right:70,bottom:330,height:420,background:"linear-gradient(135deg,#614b38,#29231f)",transform:"perspective(900px) rotateX(8deg)",boxShadow:"0 40px 90px #000"}}/>
-<div style={{position:"absolute",left:0,bottom:320,width:650,height:1200}}><Lawyer/></div>
-<div style={{position:"absolute",left:480,top:650,width:500,height:420,background:"#e2dccd",color:"#1b252b",padding:28,transform:"rotate(-5deg)",boxShadow:"0 25px 60px #000"}}><div style={{fontSize:24,fontWeight:900}}>МЕДИЧНА КАРТА</div><div style={{fontSize:55,fontWeight:950,marginTop:35}}>07:55</div><div style={{height:4,background:"#87908d",marginTop:24}}/><div style={{fontSize:24,marginTop:25}}>ПІД НАРКОЗОМ</div></div>
-<div style={{position:"absolute",left:560,top:1110,width:420,height:360,background:"#d7d0c0",color:"#1b252b",padding:25,transform:"rotate(4deg)",boxShadow:"0 25px 60px #000"}}><div style={{fontSize:23,fontWeight:900}}>АКТ ЧАСТИНИ</div><div style={{fontSize:54,fontWeight:950,marginTop:30}}>08:00</div><div style={{fontSize:24,color:"#a43d33",fontWeight:900}}>ВІДСУТНІЙ</div></div>
+<div style={{position:"absolute",left:20,bottom:180,width:430,height:1120}}><Lawyer/></div>
+<div style={{position:"absolute",left:430,top:700,width:500,height:300,background:"#e2dccd",color:"#1b252b",padding:24,boxShadow:"0 18px 50px #000"}}><div style={{fontSize:22,fontWeight:900}}>МЕДИЧНА КАРТА</div><div style={{fontSize:62,fontWeight:950,marginTop:20}}>07:55</div><div style={{height:4,background:"#87908d",marginTop:16}}/><div style={{fontSize:22,marginTop:18}}>ОПЕРАЦІЯ ТРИВАЄ</div></div>
+<div style={{position:"absolute",right:45,top:1120,width:430,height:260,background:"#d7d0c0",color:"#1b252b",padding:22,boxShadow:"0 20px 50px #000"}}><div style={{fontSize:21,fontWeight:900}}>РАПОРТ ЧАСТИНИ</div><div style={{fontSize:55,fontWeight:950,marginTop:16}}>08:00</div><div style={{fontSize:22,color:"#a43d33",fontWeight:900}}>ЗАПИСАНО ВІДСУТНІМ</div></div>
 <Caption tag="СЦЕНА 03 · АДВОКАТСЬКИЙ ОФІС" title="АДВОКАТ ЗІСТАВЛЯЄ ДВА ДОКУМЕНТИ" sub="ДАТИ НЕ МОЖУТЬ БУТИ ПРАВДОЮ ОДНОЧАСНО"/>
 </Room>;
 
 const OfficerScene:React.FC=()=>{const f=useCurrentFrame();const hand=interpolate(f,[0,150,300],[0,1,0],clamp);return <Room light="#302e25">
-<div style={{position:"absolute",left:0,bottom:280,width:640,height:1250}}><Character pose="talking" emotion="determined" animationSpeed={1}/></div>
-<div style={{position:"absolute",right:0,bottom:280,width:600,height:1200,filter:"hue-rotate(35deg) saturate(.65)"}}><Character pose="worried" emotion="worried" animationSpeed={.7}/></div>
-<div style={{position:"absolute",left:120,top:1030,width:850,height:340,background:"#d7d0c0",transform:"rotate(-3deg)",boxShadow:"0 35px 80px #000",padding:30,color:"#19232a"}}><div style={{fontSize:27,fontWeight:900}}>АКТ ПРО ВІДСУТНІСТЬ · ПІДПИС ВІДПОВІДАЛЬНОЇ ОСОБИ</div><svg width="700" height="130"><path d={"M20 90Q120 "+(40+hand*20)+" 220 85T430 60T680 80"} stroke="#1c3452" strokeWidth="8" fill="none"/></svg></div>
+<div style={{position:"absolute",left:15,bottom:160,width:420,height:1120}}><Character pose="talking" emotion="determined" animationSpeed={1}/></div>
+<div style={{position:"absolute",right:15,bottom:160,width:420,height:1120,filter:"hue-rotate(35deg) saturate(.65)"}}><Character pose="worried" emotion="worried" animationSpeed={.7}/></div>
+<div style={{position:"absolute",left:300,top:930,width:650,height:300,background:"#d7d0c0",boxShadow:"0 25px 60px #000",padding:24,color:"#19232a"}}><div style={{fontSize:22,fontWeight:900}}>АКТ ПРО ВІДСУТНІСТЬ</div><div style={{fontSize:20,marginTop:14}}>ПІДПИС ВІДПОВІДАЛЬНОЇ ОСОБИ</div><svg width="570" height="100"><path d={"M20 70Q120 "+(30+hand*15)+" 220 65T430 40T550 60"} stroke="#1c3452" strokeWidth="7" fill="none"/></svg></div>
 <Caption tag="СЦЕНА 04 · КАБІНЕТ ОФІЦЕРА" title="ТОЙ, ХТО ОБІЦЯВ ДОПОМОГТИ, ПІДПИСАВ ДОКУМЕНТ" sub="ПІДПИС ПОТРІБНО ПЕРЕВІРИТИ"/>
 </Room>};
 
 const PhoneScene:React.FC=()=>{const f=useCurrentFrame();return <Room light="#182832">
-<div style={{position:"absolute",left:0,bottom:240,width:720,height:1350}}><Lawyer/></div>
-<div style={{position:"absolute",right:100,top:620,width:420,height:760,border:"18px solid #69777b",borderRadius:65,background:"#0a1219",boxShadow:"0 30px 90px #000",padding:25,color:C.white,textAlign:"center"}}><div style={{fontSize:22,letterSpacing:4,marginTop:45}}>ВХІДНИЙ ДЗВІНОК</div><div style={{fontSize:60,fontWeight:950,marginTop:80}}>НЕВІДОМИЙ</div><div style={{fontSize:100,color:C.orange,marginTop:55,transform:"scale("+(1+Math.sin(f/7)*.05)+")"}}>☎</div><div style={{fontSize:25,color:C.orange,fontWeight:900,marginTop:70}}>ПРИХОВАНИЙ НОМЕР</div></div>
+<div style={{position:"absolute",left:0,bottom:170,width:430,height:1150}}><Lawyer/></div>
+<div style={{position:"absolute",right:105,top:650,width:360,height:650,border:"14px solid #69777b",borderRadius:55,background:"#0a1219",boxShadow:"0 30px 90px #000",padding:20,color:C.white,textAlign:"center"}}><div style={{fontSize:22,letterSpacing:4,marginTop:45}}>ВХІДНИЙ ДЗВІНОК</div><div style={{fontSize:60,fontWeight:950,marginTop:80}}>НЕВІДОМИЙ</div><div style={{fontSize:100,color:C.orange,marginTop:55,transform:"scale("+(1+Math.sin(f/7)*.05)+")"}}>☎</div><div style={{fontSize:25,color:C.orange,fontWeight:900,marginTop:70}}>ПРИХОВАНИЙ НОМЕР</div></div>
 <Caption tag="СЦЕНА 05 · НЕВІДОМИЙ ДЗВІНОК" title="«ВИ НЕ ПОВИННІ БУЛИ ЙОГО БАЧИТИ»" sub="АДВОКАТ РОЗУМІЄ: ХТОСЬ ЗНАЄ ПРО РОЗСЛІДУВАННЯ"/>
 </Room>};
 
 const RevealScene:React.FC=()=><Room light="#302c25">
-<div style={{position:"absolute",left:0,bottom:250,width:610,height:1300}}><Lawyer/></div>
-<div style={{position:"absolute",right:45,bottom:300,width:560,height:1150}}><Character pose="standing" emotion="worried"/></div>
-<div style={{position:"absolute",left:250,top:660,width:700,height:450,background:"#e1d9c8",color:"#17222a",padding:35,transform:"rotate(-4deg)",boxShadow:"0 35px 90px #000"}}><div style={{fontSize:28,fontWeight:900}}>ПІДПИС НА ДОКУМЕНТІ</div><div style={{fontSize:55,fontWeight:950,marginTop:60,color:"#a63f35"}}>ТОЙ САМИЙ ОФІЦЕР</div><div style={{fontSize:25,marginTop:35}}>ЯКИЙ ОБІЦЯВ ДОПОМОГТИ З ЛІКУВАННЯМ</div></div>
+<div style={{position:"absolute",left:0,bottom:170,width:410,height:1150}}><Lawyer/></div>
+<div style={{position:"absolute",right:0,bottom:170,width:410,height:1120}}><Character pose="standing" emotion="worried"/></div>
+<div style={{position:"absolute",left:260,top:690,width:620,height:360,background:"#e1d9c8",color:"#17222a",padding:26,boxShadow:"0 25px 60px #000"}}><div style={{fontSize:23,fontWeight:900}}>ЗБІГ ПІДПИСУ</div><div style={{fontSize:43,fontWeight:950,marginTop:40,color:"#a63f35"}}>ОФІЦЕР ЧАСТИНИ</div><div style={{fontSize:22,marginTop:25}}>ПІДПИС НА АКТІ ТА В РАПОРТІ</div></div>
 <Caption tag="СЦЕНА 06 · РОЗКРИТТЯ" title="ВІН ЗНАЙШОВ ТОГО, ХТО СТОЯВ ЗА ДОКУМЕНТОМ" sub="АЛЕ ЧОМУ ОФІЦЕР ЗРОБИВ ЦЕ?"/>
 </Room>;
 
 const EndScene:React.FC=()=> <Room light="#17232c">
-<div style={{position:"absolute",left:0,bottom:230,width:620,height:1300}}><Lawyer/></div>
-<div style={{position:"absolute",right:0,bottom:230,width:620,height:1300}}><Character pose="worried" emotion="worried"/></div>
+<div style={{position:"absolute",left:0,bottom:160,width:420,height:1150}}><Lawyer/></div>
+<div style={{position:"absolute",right:0,bottom:160,width:420,height:1150}}><Character pose="worried" emotion="worried"/></div>
 <div style={{position:"absolute",top:720,left:80,right:80,textAlign:"center",fontSize:64,fontWeight:950,color:C.white,textShadow:"0 6px 30px #000"}}>ЦЕ ЛИШЕ ПОЧАТОК</div>
 <div style={{position:"absolute",top:840,left:80,right:80,textAlign:"center",fontSize:30,fontWeight:900,color:C.orange,letterSpacing:5}}>HELPUA24 · ПРОДОВЖЕННЯ СКОРО</div>
 </Room>;

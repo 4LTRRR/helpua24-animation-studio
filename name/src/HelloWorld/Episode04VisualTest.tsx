@@ -90,7 +90,7 @@ const EndScene:React.FC=()=> <Room light="#17232c">
 <div style={{position:"absolute",right:0,bottom:230,width:620,height:1300}}><Character pose="worried" emotion="worried"/></div>
 <div style={{position:"absolute",top:720,left:80,right:80,textAlign:"center",fontSize:64,fontWeight:950,color:C.white,textShadow:"0 6px 30px #000"}}>ЦЕ ЛИШЕ ПОЧАТОК</div>
 <div style={{position:"absolute",top:840,left:80,right:80,textAlign:"center",fontSize:30,fontWeight:900,color:C.orange,letterSpacing:5}}>HELPUA24 · ПРОДОВЖЕННЯ СКОРО</div>
-</Room>};
+</Room>;
 
 const shots=[SoldierAtUnit,OperatingRoom,LawyerScene,OfficerScene,PhoneScene,RevealScene,EndScene];
 export const Episode04VisualTest:React.FC=()=><AbsoluteFill>

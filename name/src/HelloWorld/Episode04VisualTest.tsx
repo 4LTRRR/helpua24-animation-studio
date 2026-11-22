@@ -63,7 +63,7 @@ const LawyerScene:React.FC=()=><Room light="#2b3038">
 <div style={{position:"absolute",left:480,top:650,width:500,height:420,background:"#e2dccd",color:"#1b252b",padding:28,transform:"rotate(-5deg)",boxShadow:"0 25px 60px #000"}}><div style={{fontSize:24,fontWeight:900}}>МЕДИЧНА КАРТА</div><div style={{fontSize:55,fontWeight:950,marginTop:35}}>07:55</div><div style={{height:4,background:"#87908d",marginTop:24}}/><div style={{fontSize:24,marginTop:25}}>ПІД НАРКОЗОМ</div></div>
 <div style={{position:"absolute",left:560,top:1110,width:420,height:360,background:"#d7d0c0",color:"#1b252b",padding:25,transform:"rotate(4deg)",boxShadow:"0 25px 60px #000"}}><div style={{fontSize:23,fontWeight:900}}>АКТ ЧАСТИНИ</div><div style={{fontSize:54,fontWeight:950,marginTop:30}}>08:00</div><div style={{fontSize:24,color:"#a43d33",fontWeight:900}}>ВІДСУТНІЙ</div></div>
 <Caption tag="СЦЕНА 03 · АДВОКАТСЬКИЙ ОФІС" title="АДВОКАТ ЗІСТАВЛЯЄ ДВА ДОКУМЕНТИ" sub="ДАТИ НЕ МОЖУТЬ БУТИ ПРАВДОЮ ОДНОЧАСНО"/>
-</Room>};
+</Room>;
 
 const OfficerScene:React.FC=()=>{const f=useCurrentFrame();const hand=interpolate(f,[0,150,300],[0,1,0],clamp);return <Room light="#302e25">
 <div style={{position:"absolute",left:0,bottom:280,width:640,height:1250}}><Character pose="talking" emotion="determined" animationSpeed={1}/></div>
@@ -83,7 +83,7 @@ const RevealScene:React.FC=()=><Room light="#302c25">
 <div style={{position:"absolute",right:45,bottom:300,width:560,height:1150}}><Character pose="standing" emotion="worried"/></div>
 <div style={{position:"absolute",left:250,top:660,width:700,height:450,background:"#e1d9c8",color:"#17222a",padding:35,transform:"rotate(-4deg)",boxShadow:"0 35px 90px #000"}}><div style={{fontSize:28,fontWeight:900}}>ПІДПИС НА ДОКУМЕНТІ</div><div style={{fontSize:55,fontWeight:950,marginTop:60,color:"#a63f35"}}>ТОЙ САМИЙ ОФІЦЕР</div><div style={{fontSize:25,marginTop:35}}>ЯКИЙ ОБІЦЯВ ДОПОМОГТИ З ЛІКУВАННЯМ</div></div>
 <Caption tag="СЦЕНА 06 · РОЗКРИТТЯ" title="ВІН ЗНАЙШОВ ТОГО, ХТО СТОЯВ ЗА ДОКУМЕНТОМ" sub="АЛЕ ЧОМУ ОФІЦЕР ЗРОБИВ ЦЕ?"/>
-</Room>};
+</Room>;
 
 const EndScene:React.FC=()=> <Room light="#17232c">
 <div style={{position:"absolute",left:0,bottom:230,width:620,height:1300}}><Lawyer/></div>

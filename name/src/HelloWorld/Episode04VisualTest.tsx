@@ -93,7 +93,6 @@ const EndScene:React.FC=()=> <Room light="#17232c">
 </Room>};
 
 const shots=[SoldierAtUnit,OperatingRoom,LawyerScene,OfficerScene,PhoneScene,RevealScene,EndScene];
-const labels=["","", "", "", "", "", ""];
 export const Episode04VisualTest:React.FC=()=><AbsoluteFill>
 {shots.map((Comp,i)=><Sequence key={i} from={i*510} durationInFrames={510}><Comp/></Sequence>)}
 </AbsoluteFill>;

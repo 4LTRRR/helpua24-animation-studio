@@ -89,9 +89,46 @@ const SignatureReveal:React.FC=()=>{const f=useCurrentFrame();const hand=interpo
  <Title eyebrow="ДОКАЗ №03 · ПІДПИС" headline="ЦЕЙ ОФІЦЕР ОБІЦЯВ ДОПОМОГТИ З ЛІКУВАННЯМ" frame={f}/><div style={{position:"absolute",left:80,bottom:130,color:C.amber,fontSize:28,fontWeight:900,letterSpacing:4,opacity:interpolate(f,[110,155],[0,1],clamp)}}>ІМ'Я ЗБІГАЄТЬСЯ.</div><Grain/><Dust/><Scratches/></AbsoluteFill>};
 
 const Transition:React.FC<{children:React.ReactNode;index:number}>=({children,index})=>{const f=useCurrentFrame();const enter=interpolate(f,[0,16],[0,1],clamp);const exit=interpolate(f,[220,240],[1,0],clamp);return <AbsoluteFill style={{opacity:Math.min(enter,exit),transform:`translateX(${(1-enter)*90}px)`}}>{children}<div style={{position:"absolute",left:0,top:0,bottom:0,width:8,background:index===1?C.blue:C.amber,opacity:.85}}/></AbsoluteFill>};
+const Shot:React.FC<{children:React.ReactNode; eyebrow:string; headline:string; detail:string; mode?:number}>=({children,eyebrow,headline,detail,mode=0})=>{
+ const f=useCurrentFrame();
+ const enter=interpolate(f,[0,18],[0,1],clamp);
+ const exit=interpolate(f,[330,359],[1,0],clamp);
+ const zoom=interpolate(f,[0,359],mode%2===0?[1.02,1.15]:[1.16,1.04],clamp);
+ const pan=interpolate(f,[0,359],mode%3===0?[0,-48]:mode%3===1?[-34,22]:[30,-18],clamp);
+ return <AbsoluteFill style={{overflow:"hidden",opacity:Math.min(enter,exit)}}>
+  <div style={{position:"absolute",inset:-70,transform:"translate("+pan+"px,0) scale("+zoom+")"}}>{children}</div>
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(180deg,#05090edb 0%,transparent 29%,transparent 68%,#05090ee8 100%)"}}/>
+  <div style={{position:"absolute",top:76,left:62,right:62,color:C.amber,fontSize:22,fontWeight:900,letterSpacing:5}}>{eyebrow}</div>
+  <div style={{position:"absolute",top:145,left:58,right:58,color:C.white,fontSize:51,fontWeight:950,lineHeight:1.06,textShadow:"0 8px 30px #000"}}>{headline}</div>
+  <div style={{position:"absolute",bottom:135,left:62,right:62,color:"#e4dfd2",fontSize:25,fontWeight:800,letterSpacing:2,textShadow:"0 4px 18px #000"}}>{detail}</div>
+  <div style={{position:"absolute",bottom:80,left:62,right:62,height:4,background:"#71808a66"}}><div style={{height:4,width:(f/359*100)+"%",background:C.amber}}/></div>
+  <div style={{position:"absolute",right:62,bottom:40,color:"#aeb8bd",fontSize:16,letterSpacing:4}}>HELPUA24 · ДОКУМЕНТАЛЬНЕ РОЗСЛІДУВАННЯ</div>
+  <Grain/><Dust/>
+ </AbsoluteFill>
+};
+const EvidenceBoard:React.FC=()=>{const f=useCurrentFrame();return <AbsoluteFill style={{background:"#111820",overflow:"hidden"}}>
+ <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 40%,#35414a,#090d12 75%)"}}/>
+ <div style={{position:"absolute",left:65,top:390,width:950,height:1050,background:"repeating-linear-gradient(0deg,#584735 0px,#584735 2px,#6b5742 3px,#514131 8px)",boxShadow:"0 35px 90px #000"}}/>
+ {[[160,560,"МЕДИЧНА КАРТА","07:55 · НАРКОЗ"],[570,520,"АКТ ЧАСТИНИ","08:00 · ВІДСУТНІЙ"],[190,1050,"ЖУРНАЛ","14:37 · РЕЄСТРАЦІЯ"],[620,1080,"ПІДПИС","ОФІЦЕР"]].map((p,i)=><div key={i} style={{position:"absolute",left:p[0],top:p[1],width:300,height:260,background:i===3?"#d5cdbb":"#ddd7c8",color:"#17212a",padding:24,transform:"rotate("+([-5,4,3,-4][i])+"deg)",boxShadow:"0 20px 45px #000",opacity:interpolate(f,[i*22,i*22+20],[0,1],clamp)}}><div style={{fontSize:22,fontWeight:950}}>{p[2]}</div><div style={{fontSize:28,fontWeight:900,marginTop:55}}>{p[3]}</div><div style={{height:3,background:"#657078",marginTop:28}}/><div style={{height:7,width:190,background:"#8b918d",marginTop:18}}/><div style={{height:7,width:145,background:"#8b918d",marginTop:12}}/></div>)}
+ <svg style={{position:"absolute",inset:0}} viewBox="0 0 1080 1920"><path d="M450 690L570 650M330 820L330 1050M710 780L760 1080" stroke="#d98235" strokeWidth="5" strokeDasharray="12 12" fill="none"/><circle cx="540" cy="850" r={80+Math.sin(f/12)*8} stroke="#d98235" strokeWidth="5" fill="none" opacity=".8"/></svg>
+ </AbsoluteFill>};
+const PhoneThreat:React.FC=()=>{const f=useCurrentFrame();return <AbsoluteFill style={{background:"radial-gradient(ellipse at 50% 45%,#27333d,#06090d 72%)",overflow:"hidden"}}>
+ <div style={{position:"absolute",left:185,top:360,width:710,height:1180,border:"22px solid #66727a",borderRadius:90,background:"linear-gradient(145deg,#19242d,#070b10)",boxShadow:"0 40px 100px #000,0 0 90px #1b789944"}}/>
+ <div style={{position:"absolute",left:250,top:470,width:580,textAlign:"center",color:"#aab6bc",fontSize:24,letterSpacing:5}}>ВХІДНИЙ ДЗВІНОК</div>
+ <div style={{position:"absolute",left:250,top:650,width:580,textAlign:"center",fontSize:88,color:C.white,fontWeight:900}}>НЕВІДОМИЙ</div>
+ <div style={{position:"absolute",left:250,top:810,width:580,textAlign:"center",fontSize:34,color:C.amber,fontWeight:900,letterSpacing:5}}>ПРИХОВАНИЙ НОМЕР</div>
+ <div style={{position:"absolute",left:250,top:1010,width:580,textAlign:"center",fontSize:125,color:C.amber,transform:"scale("+(.96+Math.sin(f/8)*.04)+")"}}>☎</div>
+ <div style={{position:"absolute",left:260,top:1270,width:560,textAlign:"center",fontSize:32,color:C.white,lineHeight:1.5,fontWeight:900}}>«ВИ НЕ ПОВИННІ БУЛИ ЙОГО БАЧИТИ»</div>
+ </AbsoluteFill>};
 export const Episode04VisualTest:React.FC=()=> <AbsoluteFill>
- <Sequence durationInFrames={240}><Transition index={0}><OperatingRoom/></Transition></Sequence>
- <Sequence from={240} durationInFrames={240}><Transition index={1}><LawyerDesk/></Transition></Sequence>
- <Sequence from={480} durationInFrames={240}><Transition index={2}><SignatureReveal/></Transition></Sequence>
- <div style={{position:"absolute",left:55,right:55,bottom:48,height:3,background:"#64727b66"}}/>
+ <Sequence durationInFrames={360}><Shot eyebrow="ДОКАЗ №01 · 08:00" headline="ЙОГО ВЖЕ ЗАПИСАЛИ ЯК ВІДСУТНЬОГО" detail="ВІЙСЬКОВА ЧАСТИНА · РАНКОВИЙ РАПОРТ" mode={0}><LawyerDesk/></Shot></Sequence>
+ <Sequence from={360} durationInFrames={360}><Shot eyebrow="ДОКАЗ №02 · ОПЕРАЦІЙНА" headline="АЛЕ В ЦЕЙ САМИЙ ЧАС ВІН БУВ ПІД НАРКОЗОМ" detail="07:55 · ЗАГАЛЬНА АНЕСТЕЗІЯ · СТАЦІОНАР" mode={1}><OperatingRoom/></Shot></Sequence>
+ <Sequence from={720} durationInFrames={360}><Shot eyebrow="МЕДИЧНИЙ ДОКУМЕНТ" headline="ЛІКАРІ ЗАФІКСУВАЛИ ЧАС ОПЕРАЦІЇ" detail="ПАЦІЄНТ НЕ МІГ САМОСТІЙНО ПЕРЕСУВАТИСЯ" mode={2}><OperatingRoom/></Shot></Sequence>
+ <Sequence from={1080} durationInFrames={360}><Shot eyebrow="РОЗСЛІДУВАННЯ · АДВОКАТ" headline="АДВОКАТ ЗВІРЯЄ ДАТИ ТА ПІДПИСИ" detail="ОРИГІНАЛ ДОКУМЕНТА · ЖУРНАЛ РЕЄСТРАЦІЇ" mode={0}><LawyerDesk/></Shot></Sequence>
+ <Sequence from={1440} durationInFrames={360}><Shot eyebrow="НЕСТИКОВКА" headline="ДВА ДОКУМЕНТИ ФІКСУЮТЬ НЕСУМІСНІ ПОДІЇ" detail="08:00 · ЛІКАРНЯ / ВІЙСЬКОВА ЧАСТИНА" mode={1}><EvidenceBoard/></Shot></Sequence>
+ <Sequence from={1800} durationInFrames={360}><Shot eyebrow="ПЕРЕВІРКА ПІДПИСУ" headline="ХТО САМЕ ПІДПИСАВ ЦЕЙ АКТ?" detail="ПІДПИС ПОТРІБНО ЗВІРИТИ З ОРИГІНАЛОМ" mode={2}><SignatureReveal/></Shot></Sequence>
+ <Sequence from={2160} durationInFrames={360}><Shot eyebrow="НЕВІДОМИЙ НОМЕР" headline="ПОТІМ АДВОКАТУ ЗАТЕЛЕФОНУВАЛИ" detail="ДЗВІНОК БЕЗ ІМЕНІ ТА БЕЗ ПОЯСНЕНЬ" mode={0}><PhoneThreat/></Shot></Sequence>
+ <Sequence from={2520} durationInFrames={360}><Shot eyebrow="ПОГРОЗА" headline="«ВИ НЕ ПОВИННІ БУЛИ ЙОГО БАЧИТИ»" detail="ХТО ЗАЦІКАВЛЕНИЙ У ТОМУ, ЩОБ СПРАВА ЗАТИХЛА?" mode={1}><LawyerDesk/></Shot></Sequence>
+ <Sequence from={2880} durationInFrames={360}><Shot eyebrow="ОСТАННІЙ ДОКАЗ" headline="АДВОКАТ ЗНАХОДИТЬ ЗВ'ЯЗОК З ОФІЦЕРОМ" detail="ТОЙ САМИЙ, ХТО ОБІЦЯВ ДОПОМОГТИ З ЛІКУВАННЯМ" mode={2}><SignatureReveal/></Shot></Sequence>
+ <Sequence from={3240} durationInFrames={360}><Shot eyebrow="ФІНАЛЬНИЙ ПОВОРОТ" headline="САМЕ ЦЕЙ ОФІЦЕР ПІДПИСАВ ДОКУМЕНТ" detail="АЛЕ ХТО ДАВ ЙОМУ ТАКИЙ НАКАЗ? · ДАЛІ БУДЕ" mode={0}><EvidenceBoard/></Shot></Sequence>
  </AbsoluteFill>;

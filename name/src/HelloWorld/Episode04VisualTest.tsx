@@ -57,7 +57,7 @@ const OperatingRoom:React.FC=()=>{const f=useCurrentFrame();return <Room light="
 <Caption tag="СЦЕНА 02 · ОПЕРАЦІЙНА" title="АЛЕ В ЦЕЙ САМИЙ ЧАС ВІН БУВ ПІД НАРКОЗОМ" sub="07:55 · ЛІКАРІ ПРОВОДЯТЬ ОПЕРАЦІЮ"/>
 </Room>};
 
-const LawyerScene:React.FC=()=>{const f=useCurrentFrame();return <Room light="#2b3038">
+const LawyerScene:React.FC=()=><Room light="#2b3038">
 <div style={{position:"absolute",left:70,right:70,bottom:330,height:420,background:"linear-gradient(135deg,#614b38,#29231f)",transform:"perspective(900px) rotateX(8deg)",boxShadow:"0 40px 90px #000"}}/>
 <div style={{position:"absolute",left:0,bottom:320,width:650,height:1200}}><Lawyer/></div>
 <div style={{position:"absolute",left:480,top:650,width:500,height:420,background:"#e2dccd",color:"#1b252b",padding:28,transform:"rotate(-5deg)",boxShadow:"0 25px 60px #000"}}><div style={{fontSize:24,fontWeight:900}}>МЕДИЧНА КАРТА</div><div style={{fontSize:55,fontWeight:950,marginTop:35}}>07:55</div><div style={{height:4,background:"#87908d",marginTop:24}}/><div style={{fontSize:24,marginTop:25}}>ПІД НАРКОЗОМ</div></div>
@@ -78,7 +78,7 @@ const PhoneScene:React.FC=()=>{const f=useCurrentFrame();return <Room light="#18
 <Caption tag="СЦЕНА 05 · НЕВІДОМИЙ ДЗВІНОК" title="«ВИ НЕ ПОВИННІ БУЛИ ЙОГО БАЧИТИ»" sub="АДВОКАТ РОЗУМІЄ: ХТОСЬ ЗНАЄ ПРО РОЗСЛІДУВАННЯ"/>
 </Room>};
 
-const RevealScene:React.FC=()=>{const f=useCurrentFrame();return <Room light="#302c25">
+const RevealScene:React.FC=()=><Room light="#302c25">
 <div style={{position:"absolute",left:0,bottom:250,width:610,height:1300}}><Lawyer/></div>
 <div style={{position:"absolute",right:45,bottom:300,width:560,height:1150}}><Character pose="standing" emotion="worried"/></div>
 <div style={{position:"absolute",left:250,top:660,width:700,height:450,background:"#e1d9c8",color:"#17222a",padding:35,transform:"rotate(-4deg)",boxShadow:"0 35px 90px #000"}}><div style={{fontSize:28,fontWeight:900}}>ПІДПИС НА ДОКУМЕНТІ</div><div style={{fontSize:55,fontWeight:950,marginTop:60,color:"#a63f35"}}>ТОЙ САМИЙ ОФІЦЕР</div><div style={{fontSize:25,marginTop:35}}>ЯКИЙ ОБІЦЯВ ДОПОМОГТИ З ЛІКУВАННЯМ</div></div>

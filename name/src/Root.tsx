@@ -15,6 +15,8 @@ import { Episode02 } from "./HelloWorld/Episode02";
 import { Episode03 } from "./HelloWorld/Episode03";
 import { Episode04 } from "./HelloWorld/Episode04";
 import { Episode04VisualTest } from "./HelloWorld/Episode04VisualTest";
+import { EpisodeTemplate, templateScenes } from "./Series/EpisodeTemplate";
+import { totalFrames, FPS, W, H } from "./Series/kit";
 import {
   ReportWritingScene,
   WaitingScene,
@@ -245,6 +247,17 @@ export const RemotionRoot: React.FC = () => {
           fps={30}
           width={1080}
           height={1920}
+        />
+      </Folder>
+
+      <Folder name="Series">
+        <Composition
+          id="Series-Template"
+          component={EpisodeTemplate}
+          durationInFrames={totalFrames(templateScenes)}
+          fps={FPS}
+          width={W}
+          height={H}
         />
       </Folder>
 

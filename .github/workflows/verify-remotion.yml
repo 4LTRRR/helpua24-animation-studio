@@ -54,6 +54,9 @@ jobs:
       - name: Render full episode 04
         run: npx remotion render src/index.ts Episode-04-He-Could-Not-Be-There out/episode-04-final.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
 
+      - name: Render series template (style check)
+        run: npx remotion render src/index.ts Series-Template out/series-template.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2
+
       - name: Upload full episode MP4
         uses: actions/upload-artifact@v4
         with:

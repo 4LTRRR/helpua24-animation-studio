@@ -17,6 +17,7 @@ import { Episode04 } from "./HelloWorld/Episode04";
 import { Episode04VisualTest } from "./HelloWorld/Episode04VisualTest";
 import { EpisodeTemplate, templateScenes } from "./Series/EpisodeTemplate";
 import { totalFrames, FPS, W, H } from "./Series/kit";
+import { EpisodeTck, tckScenes } from "./Tck/EpisodeTck";
 import {
   ReportWritingScene,
   WaitingScene,
@@ -255,6 +256,14 @@ export const RemotionRoot: React.FC = () => {
           id="Series-Template"
           component={EpisodeTemplate}
           durationInFrames={totalFrames(templateScenes)}
+          fps={FPS}
+          width={W}
+          height={H}
+        />
+        <Composition
+          id="Tck-Shosta-Sorok"
+          component={EpisodeTck}
+          durationInFrames={totalFrames(tckScenes)}
           fps={FPS}
           width={W}
           height={H}

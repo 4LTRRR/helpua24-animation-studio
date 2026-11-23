@@ -68,7 +68,7 @@ export type Hud = {
   episode: string;
   /** «12.05.2017» */
   date: string;
-  /** стартовий таймкод «03:11:59» — далі йде в реальному часі */
+  /** таймкод сюжету на початку сцени «06:40:00»; в межах сцени тікає */
   time: string;
   /** маленький підпис під таймкодом: «ЛИЧНОСТИ НЕ УСТАНОВЛЕНЫ» */
   note?: string;
@@ -175,9 +175,7 @@ export const Vignette: React.FC = () => (
 export const HudBar: React.FC<{
   hud: Hud;
   act: Act;
-  /** секунди від старту ВСЬОГО відео — щоб таймкод тік безперервно */
-  elapsed: number;
-}> = ({ hud, act, elapsed }) => {
+}> = ({ hud, act }) => {
   const frame = useCurrentFrame();
   const c = ACTS[act];
   const blink = Math.floor(frame / 15) % 2 === 0;
@@ -223,7 +221,7 @@ export const HudBar: React.FC<{
       </div>
       <div style={{ textAlign: "right" }}>
         <div style={{ fontSize: 30, color: "#aab4c0", letterSpacing: 1 }}>
-          {hud.date}&nbsp;&nbsp;{fmtTime(parseTime(hud.time) + elapsed)}
+          {hud.date}&nbsp;&nbsp;{fmtTime(parseTime(hud.time) + frame / FPS)}
         </div>
         {hud.note ? (
           <div
@@ -265,6 +263,14 @@ export const Captions: React.FC<{
     if (g && g.length < maxWords) g.push(w);
     else groups.push([w]);
   });
+
+  // прийменники/сполучники (≤3 літери) не лишаємо в кінці рядка — переносимо до наступної групи
+  for (let i = 0; i < groups.length - 1; i++) {
+    const g = groups[i];
+    while (g.length > 1 && g[g.length - 1].t.replace(/[^\p{L}]/gu, "").length <= 3) {
+      groups[i + 1].unshift(g.pop() as CaptionWord);
+    }
+  }
 
   let active = -1;
   groups.forEach((g, i) => {
@@ -337,8 +343,7 @@ export const PushIn: React.FC<{
 const SceneShell: React.FC<{
   scene: SceneDef;
   frames: number;
-  elapsed: number;
-}> = ({ scene, frames, elapsed }) => {
+}> = ({ scene, frames }) => {
   const frame = useCurrentFrame();
   const V = scene.visual;
   // «удар» на склейці: 3 кадри легкого спалаху/зсуву — жорстка склейка як в оригіналі
@@ -351,7 +356,7 @@ const SceneShell: React.FC<{
         <V act={scene.act} />
       </PushIn>
       <Vignette />
-      <HudBar hud={scene.hud} act={scene.act} elapsed={elapsed} />
+      <HudBar hud={scene.hud} act={scene.act} />
       <Captions words={scene.words} y={scene.captionY} />
       <AbsoluteFill
         style={{ background: "#fff", opacity: hit * 0.16, pointerEvents: "none" }}
@@ -364,7 +369,7 @@ export const sceneFrames = (s: SceneDef) => Math.round(s.seconds * FPS);
 export const totalFrames = (scenes: SceneDef[]) =>
   scenes.reduce((a, s) => a + sceneFrames(s), 0);
 
-/** Збирає епізод: жорсткі склейки, безперервний таймкод у HUD. */
+/** Збирає епізод: жорсткі склейки; таймкод у HUD тікає в межах сцени й стрибає на склейці. */
 export const Episode: React.FC<{ scenes: SceneDef[] }> = ({ scenes }) => {
   let cursor = 0;
   return (
@@ -375,7 +380,7 @@ export const Episode: React.FC<{ scenes: SceneDef[] }> = ({ scenes }) => {
         cursor += frames;
         return (
           <Sequence key={s.id} from={from} durationInFrames={frames} layout="none">
-            <SceneShell scene={s} frames={frames} elapsed={from / FPS} />
+            <SceneShell scene={s} frames={frames} />
           </Sequence>
         );
       })}
